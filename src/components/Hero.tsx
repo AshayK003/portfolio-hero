@@ -44,7 +44,7 @@ function VantaNet() {
             minWidth: 200.0,
             scale: 1.0,
             scaleMobile: 1.0,
-            color: 0x3fbdff,
+            color: 0x39afca,
             spacing: isMobile ? 30.0 : 20.0,
             backgroundColor: 0x0a0a0a,
           })
