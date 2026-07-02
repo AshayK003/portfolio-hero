@@ -45,11 +45,11 @@ function VantaNet() {
             scale: 1.0,
             scaleMobile: 1.0,
             color: 0x3fbdff,
-            spacing: isMobile ? 40.0 : 20.0,
+            spacing: isMobile ? 30.0 : 20.0,
             backgroundColor: 0x0a0a0a,
           })
           if (containerRef.current) {
-            containerRef.current.style.opacity = "1"
+            containerRef.current.style.opacity = isMobile ? "0.55" : "1"
           }
         })
     })
