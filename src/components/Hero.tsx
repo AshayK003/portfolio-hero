@@ -23,6 +23,8 @@ function VantaNet() {
     const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2000))
     let mounted = true
 
+    const isMobile = window.innerWidth < 768
+
     idleCallback(() => {
       import("three")
         .then((THREE) => {
@@ -43,7 +45,7 @@ function VantaNet() {
             scale: 1.0,
             scaleMobile: 1.0,
             color: 0x3fbdff,
-            spacing: 20.0,
+            spacing: isMobile ? 40.0 : 20.0,
             backgroundColor: 0x0a0a0a,
           })
           if (containerRef.current) {
