@@ -35,9 +35,7 @@ export function Footer() {
       <div className="footer-inner">
         <div className="footer-left">
           <span className="footer-name">{site.name}</span>
-          <span className="footer-built">
-            Built with Next.js &middot; Animated with GSAP &middot; Styled with Tailwind CSS
-          </span>
+
         </div>
 
         <div className="footer-links" role="list" aria-label="Social links">

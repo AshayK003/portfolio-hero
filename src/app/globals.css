@@ -1187,12 +1187,6 @@ button:focus-visible,
   letter-spacing: -0.02em;
 }
 
-.footer-built {
-  font-family: var(--font-input);
-  font-size: 11px;
-  color: var(--color-ash);
-  letter-spacing: -0.02em;
-}
 
 .footer-links {
   display: flex;
