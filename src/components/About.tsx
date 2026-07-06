@@ -1,12 +1,18 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Zap, Link2, Globe, Target } from "lucide-react"
+import { Zap, Link2, Globe, Target, Code2, GitPullRequest, Infinity, Sparkles } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
 
 gsap.registerPlugin(ScrollTrigger)
+
+const statIcons: Record<string, React.ReactNode> = {
+  "Open Source Projects": <Code2 size={18} />,
+  "PR Contributions": <GitPullRequest size={18} />,
+  "Problems Solved": <Infinity size={18} />,
+}
 
 export function About() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -14,6 +20,7 @@ export function About() {
   const statsRef = useRef<HTMLDivElement>(null)
   const strengthsRef = useRef<HTMLDivElement>(null)
   const philosophyRef = useRef<HTMLDivElement>(null)
+  const interestsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -78,6 +85,21 @@ export function About() {
           }
         )
       }
+
+      if (interestsRef.current) {
+        gsap.fromTo(
+          interestsRef.current.querySelectorAll(".interest-chip"),
+          { scale: 0.9, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.4,
+            ease: "power3.out",
+            stagger: 0.06,
+            scrollTrigger: { trigger: interestsRef.current, start: "top 85%" },
+          }
+        )
+      }
     })
 
     return () => ctx.revert()
@@ -104,6 +126,9 @@ export function About() {
           <div ref={statsRef} className="stats-row">
             {site.stats.map((stat) => (
               <div key={stat.label} className="stat-card">
+                <div className="stat-icon" aria-hidden="true">
+                  {statIcons[stat.label] || <Sparkles size={18} />}
+                </div>
                 <div className="stat-value">{stat.value}</div>
                 <div className="stat-label">{stat.label}</div>
               </div>
@@ -136,6 +161,19 @@ export function About() {
             <p className="philosophy-text">{site.about.philosophy.body}</p>
             <p className="philosophy-text" style={{ marginTop: 12 }}>{site.about.philosophy.body2}</p>
           </div>
+
+          {site.about.interests && site.about.interests.length > 0 && (
+            <div ref={interestsRef} className="about-interests">
+              <h3 style={{ fontSize: 14, fontWeight: 600, color: "var(--color-smoke)", marginBottom: 12, letterSpacing: "-0.01em" }}>
+                Interests
+              </h3>
+              <div className="interests-row">
+                {site.about.interests.map((interest) => (
+                  <span key={interest} className="interest-chip">{interest}</span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
