@@ -35,8 +35,8 @@ export const site = {
   },
 
   stats: [
-    { value: "6+", label: "Open Source Projects" },
-    { value: "4", label: "Tech Stacks" },
+    { value: "15+", label: "Open Source Projects" },
+    { value: "12", label: "PR Contributions" },
     { value: "∞", label: "Problems Solved" },
   ],
 
@@ -50,6 +50,16 @@ export const site = {
       url: "https://github.com/AshayK003/nse-sentiment-analyzer",
       gradient: "from-cyan-900/20 to-sky-900/10",
       featured: false,
+    },
+    {
+      name: "DataSmith",
+      tagline: "Synthetic data with a real moat",
+      description:
+        "Describe any dataset in plain English — automatically discovers real-world schemas and generates realistic synthetic data with domain-specific imperfections. Schema Knowledge Graph, correlation engine, LLM schema verification.",
+      tags: ["Python", "SDV", "NumPy", "Streamlit"],
+      url: "https://github.com/AshayK003/DataSmith",
+      gradient: "from-indigo-900/20 to-violet-900/10",
+      featured: true,
     },
     {
       name: "KarmaMap",
@@ -92,16 +102,6 @@ export const site = {
       featured: false,
     },
     {
-      name: "PACE",
-      tagline: "AI content analysis pipeline",
-      description:
-        "Ingests YouTube videos, PDFs, articles, and audio — generates comprehensive 10-section reports in 4 export formats. Powered by Gemini. Multi-format ingestion with structured analysis.",
-      tags: ["Streamlit", "Python", "Gemini"],
-      url: "https://github.com/AshayK003/PACE",
-      gradient: "from-pink-900/20 to-rose-900/10",
-      featured: false,
-    },
-    {
       name: "NSE Risk Scanner",
       tagline: "Portfolio risk analytics for NSE investors",
       description:
@@ -109,6 +109,46 @@ export const site = {
       tags: ["Streamlit", "Python", "NumPy", "SciPy"],
       url: "https://github.com/AshayK003/nse-portfolio-risk-scanner",
       gradient: "from-green-900/20 to-emerald-900/10",
+      featured: false,
+    },
+    {
+      name: "pdf-studio",
+      tagline: "PDF generation, three lines at a time",
+      description:
+        "Importable zero-dependency PDF library with pluggable backends. One call for a table, one for a chart, one for a header. Bundled fonts, auto page-break tables, running headers. Like SQLAlchemy for PDFs.",
+      tags: ["Python", "ReportLab", "PDF"],
+      url: "https://github.com/AshayK003/pdf-studio",
+      gradient: "from-rose-900/20 to-pink-900/10",
+      featured: false,
+    },
+    {
+      name: "DiffIQ",
+      tagline: "BSE filing difference analysis",
+      description:
+        "Detect what changed between corporate filings. Downloads BSE board meeting outcomes and annual reports, extracts text via pypdf, and diffs them side by side. Streamlit dashboard with historical tracking.",
+      tags: ["Streamlit", "Python", "NLP"],
+      url: "https://github.com/AshayK003/DiffIQ",
+      gradient: "from-yellow-900/20 to-amber-900/10",
+      featured: false,
+    },
+    {
+      name: "Hackathon Problems",
+      tagline: "Real-world problem statements",
+      description:
+        "36 structured problem statements across Global South AI, US Civic Tech, and Rapid Prototypes. Each comes with datasets, related papers, and MVP timeline estimates. Built for hackathons and impact projects.",
+      tags: ["Markdown", "Research", "Open Source"],
+      url: "https://github.com/AshayK003/hackathon-problem-statements",
+      gradient: "from-sky-900/20 to-blue-900/10",
+      featured: false,
+    },
+    {
+      name: "PriceSentinel",
+      tagline: "Competitor price monitoring",
+      description:
+        "Chrome extension (WXT + Preact) with FastAPI backend that monitors competitor pricing pages. Local-first with chrome.storage, optional polling/notifications. Zero infrastructure — no Redis, Celery, or SendGrid.",
+      tags: ["WXT", "Preact", "FastAPI", "Chrome"],
+      url: "https://github.com/AshayK003/PriceSentinel",
+      gradient: "from-red-900/20 to-orange-900/10",
       featured: false,
     },
   ],
