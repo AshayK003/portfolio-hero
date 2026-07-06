@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { TrendingUp, Map, Shield, BarChart3, Globe, Sparkles, ArrowRight } from "lucide-react"
+import { TrendingUp, Map, Shield, BarChart3, Globe, Sparkles, ArrowRight, LineChart } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
@@ -15,6 +15,7 @@ const projectIcons: Record<string, React.ReactNode> = {
   CausalLens: <BarChart3 size={18} />,
   DeltaGrid: <Globe size={18} />,
   PACE: <Sparkles size={18} />,
+  "NSE Risk Scanner": <LineChart size={18} />,
 }
 
 export function Projects() {

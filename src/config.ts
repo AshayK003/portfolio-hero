@@ -101,6 +101,16 @@ export const site = {
       gradient: "from-pink-900/20 to-rose-900/10",
       featured: false,
     },
+    {
+      name: "NSE Risk Scanner",
+      tagline: "Portfolio risk analytics for NSE investors",
+      description:
+        "VaR 95/99, Sharpe, Sortino, Monte Carlo simulation, HMM regime detection, and sector concentration analysis from a single CSV upload. 355 tests, 90% coverage, zero paid APIs.",
+      tags: ["Streamlit", "Python", "NumPy", "SciPy"],
+      url: "https://github.com/AshayK003/nse-portfolio-risk-scanner",
+      gradient: "from-green-900/20 to-emerald-900/10",
+      featured: false,
+    },
   ],
 
   stack: [
