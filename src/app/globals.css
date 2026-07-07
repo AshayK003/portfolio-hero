@@ -8,14 +8,17 @@
   --color-frost-text: #f3f3f3;
   --color-silver: #c1c1c1;
   --color-smoke: #949494;
+  --color-mist: #7a7a7a;
   --color-graphite: #888888;
   --color-fog: #9c9c9c;
   --color-pure-white: #ffffff;
-  --color-amber-whisper: #e7c59a;
+  --color-warm-glow: #e7c59a;
   --color-glass: rgba(255, 255, 255, 0.04);
   --color-glass-border: rgba(255, 255, 255, 0.08);
   --color-glass-hover: rgba(255, 255, 255, 0.08);
+  --color-glass-elevated: rgba(255, 255, 255, 0.06);
   --color-elevated: rgba(255, 255, 255, 0.03);
+  --color-surface-gradient: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(15,23,42,1) 50%, rgba(10,10,10,1) 100%);
 
   --font-aeonik: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-input: "JetBrains Mono", "SF Mono", monospace;
@@ -30,10 +33,17 @@
 
   --color-accent: #38bdf8;
   --color-accent-dim: rgba(56, 189, 248, 0.15);
+  --color-accent-soft: rgba(56, 189, 248, 0.06);
   --color-accent-2: #a78bfa;
   --color-accent-2-dim: rgba(167, 139, 250, 0.15);
+  --color-accent-2-soft: rgba(167, 139, 250, 0.06);
+  --color-accent-tertiary: #06b6d4;
   --color-accent-gradient: linear-gradient(135deg, #38bdf8, #a78bfa);
   --color-accent-gradient-subtle: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(167, 139, 250, 0.08));
+
+  --glow-accent: 0 0 20px rgba(56, 189, 248, 0.15);
+  --glow-accent-2: 0 0 20px rgba(167, 139, 250, 0.15);
+  --glow-warm: 0 0 20px rgba(231, 197, 154, 0.1);
 }
 
 *,
@@ -54,6 +64,7 @@ html {
 body {
   font-family: var(--font-aeonik);
   background: #0a0a0a;
+  background-image: var(--color-surface-gradient);
   color: #f3f3f3;
   overflow-x: hidden;
   min-height: 100vh;
@@ -526,7 +537,7 @@ button:focus-visible,
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   position: relative;
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(231,197,154,0.15); background: rgba(255,255,255,0.96); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--glow-accent); background: rgba(255,255,255,0.96); }
 .btn-primary:active { transform: translateY(0) scale(0.98); }
 
 .btn-outlined {

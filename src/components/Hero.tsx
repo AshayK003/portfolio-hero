@@ -5,68 +5,10 @@ import { ArrowRight } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
+import { Scene } from "@/three/Scene"
+import { useScrollManager, useMousePosition } from "@/three/ScrollManager"
 
 gsap.registerPlugin(ScrollTrigger)
-
-function VantaNet() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const loadedRef = useRef(false)
-
-  useEffect(() => {
-    if (!containerRef.current || loadedRef.current) return
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReducedMotion) return
-
-    loadedRef.current = true
-
-    const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2000))
-    let mounted = true
-
-    const isMobile = window.innerWidth < 768
-
-    idleCallback(() => {
-      import("three")
-        .then((THREE) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          ;(window as any).THREE = THREE
-          return import("vanta/dist/vanta.net.min")
-        })
-        .then((mod) => {
-          if (!mounted || !containerRef.current) return
-          const VantaNet = mod.default
-          VantaNet({
-            el: containerRef.current,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x39afca,
-            spacing: isMobile ? 30.0 : 20.0,
-            backgroundColor: 0x0a0a0a,
-          })
-          if (containerRef.current) {
-            containerRef.current.style.opacity = isMobile ? "0.55" : "1"
-          }
-        })
-    })
-
-    return () => {
-      mounted = false
-    }
-  }, [])
-
-  return (
-    <div
-      ref={containerRef}
-      style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0, transition: "opacity 0.8s ease" }}
-      aria-hidden="true"
-    />
-  )
-}
 
 function Headline({ text, delay, highlights }: { text: string; delay: number; highlights?: Record<string, string> }) {
   const ref = useRef<HTMLHeadingElement>(null)
@@ -123,9 +65,12 @@ export function Hero() {
   const badgeRef = useRef<HTMLDivElement>(null)
   const subRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
-  const vantaRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  const scrollProgress = useScrollManager()
+  const mouse = useMousePosition()
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -168,9 +113,9 @@ export function Hero() {
       "-=0.2"
     )
 
-    if (vantaRef.current && sectionRef.current) {
-      gsap.to(vantaRef.current, {
-        y: 60,
+    if (contentRef.current && sectionRef.current) {
+      gsap.to(contentRef.current, {
+        y: -30,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -180,13 +125,29 @@ export function Hero() {
         },
       })
     }
+
+    // Fade hero out on scroll
+    if (sectionRef.current) {
+      gsap.to(sectionRef.current, {
+        opacity: 0.3,
+        scale: 0.95,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "center top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      })
+    }
   }, [])
 
   return (
     <section ref={sectionRef} className="hero" aria-label="Introduction">
-      <VantaNet />
+      {/* Three.js scene replaces Vanta.NET */}
+      <Scene mouse={mouse} scrollProgress={scrollProgress} />
 
-      <div ref={vantaRef} className="hero-content">
+      <div ref={contentRef} className="hero-content">
         <div ref={badgeRef} className="hero-badge" style={{ opacity: 0 }}>
           <span className="hero-badge-dot" />
           <span className="hero-badge-text">{site.availability}</span>

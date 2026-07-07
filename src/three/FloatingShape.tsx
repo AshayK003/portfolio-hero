@@ -1,0 +1,61 @@
+"use client"
+
+import { useRef, useMemo } from "react"
+import { useFrame } from "@react-three/fiber"
+import { Float } from "@react-three/drei"
+import * as THREE from "three"
+
+interface FloatingShapeProps {
+  mouse: React.MutableRefObject<{ x: number; y: number }>
+  scrollProgress: React.MutableRefObject<number>
+}
+
+export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
+  const meshRef = useRef<THREE.Mesh>(null)
+
+  // Pick one geometry at random for variety each load
+  const geometry = useMemo(() => {
+    const types = [
+      new THREE.TorusKnotGeometry(1.2, 0.35, 128, 16),
+      new THREE.IcosahedronGeometry(1.1, 0),
+      new THREE.OctahedronGeometry(1.3, 0),
+    ]
+    return types[Math.floor(Math.random() * types.length)]
+  }, [])
+
+  useFrame((state, delta) => {
+    if (!meshRef.current) return
+
+    // Slow rotation
+    meshRef.current.rotation.x += delta * 0.15
+    meshRef.current.rotation.y += delta * 0.2
+
+    // Subtle mouse parallax
+    meshRef.current.position.x += (mouse.current.x * 0.15 - meshRef.current.position.x) * 0.02
+    meshRef.current.position.y += (-mouse.current.y * 0.15 - meshRef.current.position.y) * 0.02
+
+    // Scale down + fade on scroll
+    const scroll = scrollProgress.current
+    const scale = Math.max(0, 1 - scroll * 2)
+    meshRef.current.scale.setScalar(scale)
+    const material = meshRef.current.material as THREE.MeshStandardMaterial
+    material.opacity = scale
+  })
+
+  return (
+    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
+      <mesh ref={meshRef} geometry={geometry}>
+        <meshPhysicalMaterial
+          color="#38bdf8"
+          metalness={0.3}
+          roughness={0.4}
+          transparent
+          opacity={1}
+          wireframe={false}
+          envMapIntensity={0.5}
+          clearcoat={0.1}
+        />
+      </mesh>
+    </Float>
+  )
+}
