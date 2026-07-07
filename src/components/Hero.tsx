@@ -166,13 +166,13 @@ export function Hero() {
       {/* Three.js scene — dynamically loaded, gated on desktop + motion preference */}
       {canRender && <Scene mouse={mouse} scrollProgress={scrollProgress} />}
 
-      <div ref={contentRef} className="hero-content">
+      <div ref={contentRef} className="hero-content hero-content--left">
         <div ref={badgeRef} className="hero-badge" style={{ opacity: 0 }}>
           <span className="hero-badge-dot" />
           <span className="hero-badge-text">{site.availability}</span>
         </div>
 
-        <Headline text={site.headline} delay={0.4} highlights={{ systems: "#38bdf8", problems: "#d4d4d4" }} />
+        <Headline text={site.headline} delay={0.4} highlights={{ systems: "var(--color-accent)", problems: "var(--color-silver)" }} />
 
         <p ref={subRef} className="hero-subheading" style={{ opacity: 0 }}>
           {site.subheading}

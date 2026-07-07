@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
-import { Menu, X, User } from "lucide-react"
+import { Menu, X, ArrowRight } from "lucide-react"
 import gsap from "gsap"
 import { site } from "@/config"
 
@@ -105,15 +105,17 @@ export function Nav() {
         <div className="nav-links" role="list">
           {site.nav.map((item) => {
             const id = item.toLowerCase()
+            const isContact = id === "contact"
             return (
               <button
                 key={item}
                 onClick={() => scrollTo(id)}
-                className={`nav-link${activeSection === id ? " active" : ""}`}
+                className={`nav-link${activeSection === id ? " active" : ""}${isContact ? " nav-link-cta" : ""}`}
                 role="listitem"
                 aria-current={activeSection === id ? "true" : undefined}
               >
                 {item}
+                {isContact && <ArrowRight size={12} />}
               </button>
             )
           })}
@@ -126,16 +128,6 @@ export function Nav() {
             aria-label="Open navigation menu"
           >
             <Menu size={18} />
-          </button>
-          <button
-            onClick={() => scrollTo("contact")}
-            className="nav-pill"
-            aria-label="Get in touch"
-          >
-            <span className="nav-pill-icon" aria-hidden="true">
-              <User size={12} />
-            </span>
-            LET&apos;S CHAT
           </button>
         </div>
 
