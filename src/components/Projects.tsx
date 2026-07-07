@@ -80,19 +80,21 @@ export function Projects() {
             <div className="project-icon" aria-hidden="true">
               {projectIcons[project.name] || <Sparkles size={18} />}
             </div>
-            <div className="project-title">{project.name}</div>
-            <div className="project-tagline">{project.tagline}</div>
-            <div className="project-desc">{project.description}</div>
-            <div className="project-tags">
-              {project.tags.map((tag) => (
-                <span key={tag} className="project-tag">{tag}</span>
-              ))}
-            </div>
-            <div className="project-footer">
-              <span className="project-link">
-                View on GitHub
-                <ArrowRight size={13} className="project-link-arrow" />
-              </span>
+            <div className="project-body">
+              <div className="project-title">{project.name}</div>
+              <div className="project-tagline">{project.tagline}</div>
+              <div className="project-desc">{project.description}</div>
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="project-tag">{tag}</span>
+                ))}
+              </div>
+              <div className="project-footer">
+                <span className="project-link">
+                  View on GitHub
+                  <ArrowRight size={13} className="project-link-arrow" />
+                </span>
+              </div>
             </div>
           </a>
         ))}
