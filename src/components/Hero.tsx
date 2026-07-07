@@ -126,11 +126,11 @@ export function Hero() {
       })
     }
 
-    // Fade hero out on scroll
+    // Fade hero out on scroll — less aggressive (particles stay ambient)
     if (sectionRef.current) {
       gsap.to(sectionRef.current, {
-        opacity: 0.3,
-        scale: 0.95,
+        opacity: 0.5,
+        scale: 0.98,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,

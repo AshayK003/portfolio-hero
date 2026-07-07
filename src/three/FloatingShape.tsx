@@ -13,6 +13,8 @@ interface FloatingShapeProps {
 export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
   const meshRef = useRef<THREE.Mesh>(null)
 
+  const colorRef = useRef(new THREE.Color("#38bdf8"))
+
   // Pick one geometry at random for variety each load
   const geometry = useMemo(() => {
     const types = [
@@ -34,12 +36,23 @@ export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
     meshRef.current.position.x += (mouse.current.x * 0.15 - meshRef.current.position.x) * 0.02
     meshRef.current.position.y += (-mouse.current.y * 0.15 - meshRef.current.position.y) * 0.02
 
-    // Scale down + fade on scroll
+    // Scroll-driven effects
     const scroll = scrollProgress.current
-    const scale = Math.max(0, 1 - scroll * 2)
+    const scale = Math.max(0.12, 1 - scroll * 2.5)
     meshRef.current.scale.setScalar(scale)
     const material = meshRef.current.material as THREE.MeshStandardMaterial
     material.opacity = scale
+
+    // Color-shift from cyan → violet → warm as scroll progresses
+    const cyan = new THREE.Color("#38bdf8")
+    const violet = new THREE.Color("#a78bfa")
+    const warm = new THREE.Color("#e7c59a")
+    const t = Math.min(scroll * 2, 1)
+    const targetColor = t < 0.5
+      ? cyan.clone().lerp(violet, t * 2)
+      : violet.clone().lerp(warm, (t - 0.5) * 2)
+    colorRef.current.lerp(targetColor, 0.05)
+    material.color.copy(colorRef.current)
   })
 
   return (

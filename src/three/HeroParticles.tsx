@@ -70,9 +70,9 @@ export function HeroParticles({ mouse, scrollProgress }: HeroParticlesProps) {
 
     ref.current.geometry.attributes.position.needsUpdate = true
 
-    // Opacity fade on scroll
+    // Opacity fade on scroll — keep ambient layer visible behind content
     const material = ref.current.material as THREE.PointsMaterial
-    material.opacity = Math.max(0, 1 - scroll * 1.5)
+    material.opacity = Math.max(0.12, 1 - scroll * 1.5)
   })
 
   return (
