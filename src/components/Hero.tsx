@@ -1,14 +1,19 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
+import dynamic from "next/dynamic"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
-import { Scene } from "@/three/Scene"
 import { useScrollManager, useMousePosition } from "@/three/ScrollManager"
 
 gsap.registerPlugin(ScrollTrigger)
+
+const Scene = dynamic(() => import("@/three/Scene").then((m) => m.Scene), {
+  ssr: false,
+  loading: () => null,
+})
 
 function Headline({ text, delay, highlights }: { text: string; delay: number; highlights?: Record<string, string> }) {
   const ref = useRef<HTMLHeadingElement>(null)
@@ -71,6 +76,20 @@ export function Hero() {
 
   const scrollProgress = useScrollManager()
   const mouse = useMousePosition()
+  const [canRender, setCanRender] = useState(false)
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)")
+    const rm = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const check = () => setCanRender(mql.matches && !rm.matches)
+    check()
+    mql.addEventListener("change", check)
+    rm.addEventListener("change", check)
+    return () => {
+      mql.removeEventListener("change", check)
+      rm.removeEventListener("change", check)
+    }
+  }, [])
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -144,8 +163,8 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="hero" aria-label="Introduction">
-      {/* Three.js scene replaces Vanta.NET */}
-      <Scene mouse={mouse} scrollProgress={scrollProgress} />
+      {/* Three.js scene — dynamically loaded, gated on desktop + motion preference */}
+      {canRender && <Scene mouse={mouse} scrollProgress={scrollProgress} />}
 
       <div ref={contentRef} className="hero-content">
         <div ref={badgeRef} className="hero-badge" style={{ opacity: 0 }}>
