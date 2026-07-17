@@ -1,4 +1,10 @@
 "use client"
+// Reads CSS custom properties at runtime. Fallback ensures SSR safety.
+function cssVar(name: string, fallback: string): string {
+  if (typeof document === "undefined") return fallback
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback
+}
+
 
 import { useRef, useMemo } from "react"
 import { useFrame } from "@react-three/fiber"
@@ -19,9 +25,9 @@ export function HeroParticles({ mouse, scrollProgress }: HeroParticlesProps) {
     const col = new Float32Array(count * 3)
     const siz = new Float32Array(count)
 
-    const cyan = new THREE.Color("#38bdf8")
-    const violet = new THREE.Color("#a78bfa")
-    const dark = new THREE.Color("#0a0a0a")
+    const cyan = new THREE.Color(cssVar("--color-accent", "#38bdf8"))
+    const violet = new THREE.Color(cssVar("--color-accent-2", "#a78bfa"))
+    const dark = new THREE.Color(cssVar("--color-obsidian-canvas", "#0a0a0a"))
 
     for (let i = 0; i < count; i++) {
       const radius = 4 + Math.random() * 3

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { TrendingUp, Map, Shield, BarChart3, Globe, Sparkles, ArrowRight, LineChart } from "lucide-react"
+import { TrendingUp, Map, Shield, BarChart3, Globe, Code2, ArrowRight, LineChart, Database, FileText, Search, Lightbulb } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
@@ -14,8 +14,11 @@ const projectIcons: Record<string, React.ReactNode> = {
   BreachAlpha: <Shield size={18} />,
   CausalLens: <BarChart3 size={18} />,
   DeltaGrid: <Globe size={18} />,
-  PACE: <Sparkles size={18} />,
+  DataSmith: <Database size={18} />,
   "NSE Risk Scanner": <LineChart size={18} />,
+  "pdf-studio": <FileText size={18} />,
+  PriceSentinel: <Search size={18} />,
+  "Hackathon Problems": <Lightbulb size={18} />,
 }
 
 export function Projects() {
@@ -78,7 +81,7 @@ export function Projects() {
           >
             <div className="project-card-gradient" style={{ background: project.gradient?.replace("/20", "/10") || "transparent" }} />
             <div className="project-icon" aria-hidden="true">
-              {projectIcons[project.name] || <Sparkles size={18} />}
+              {projectIcons[project.name] || <Code2 size={18} />}
             </div>
             <div className="project-body">
               <div className="project-title">{project.name}</div>

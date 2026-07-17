@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Zap, Link2, Globe, Target, Code2, GitPullRequest, Infinity, Sparkles } from "lucide-react"
+import { Zap, Link2, Globe, Target, Code2, GitPullRequest, Infinity } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
@@ -127,7 +127,7 @@ export function About() {
             {site.stats.map((stat) => (
               <div key={stat.label} className="stat-card">
                 <div className="stat-icon" aria-hidden="true">
-                  {statIcons[stat.label] || <Sparkles size={18} />}
+                  {statIcons[stat.label] || <Code2 size={18} />}
                 </div>
                 <div className="stat-stat">
                   <div className="stat-value">{stat.value}</div>

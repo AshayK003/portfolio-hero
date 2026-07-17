@@ -23,6 +23,15 @@ export function Nav() {
   }, [])
 
   useEffect(() => {
+    if (!mobileOpen) return
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false)
+    }
+    window.addEventListener("keydown", handleKey)
+    return () => window.removeEventListener("keydown", handleKey)
+  }, [mobileOpen])
+
+  useEffect(() => {
     if (!ref.current) return
     gsap.fromTo(
       ref.current,

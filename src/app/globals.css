@@ -4,7 +4,7 @@
   --color-obsidian-canvas: #0b0b0d;
   --color-charcoal-surface: #1a1b1e;
   --color-onyx-edge: #222327;
-  --color-ash: #5a5b5e;
+  --color-ash: #828487;
   --color-frost-text: #f0f2f6;
   --color-silver: #c0c2c6;
   --color-smoke: #939598;
@@ -102,8 +102,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   left: 16px;
   z-index: 9999;
   padding: 12px 20px;
-  background: #ffffff;
-  color: #0a0a0a;
+  background: var(--color-pure-white);
+  color: var(--color-obsidian-canvas);
   font-size: 14px;
   font-weight: 600;
   border-radius: 8px;
@@ -277,34 +277,7 @@ button:focus-visible,
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.nav-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  background: #d4d4d4;
-  color: #0a0a0a;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px 8px 12px;
-  border-radius: var(--radius-pills);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.nav-pill:hover { opacity: 0.85; transform: translateY(-1px); }
-.nav-pill:active { transform: translateY(0) scale(0.97); }
-
-.nav-pill-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
 .nav-progress {
@@ -379,7 +352,7 @@ button:focus-visible,
 }
 
 @media (min-width: 768px) {
-  .hero { padding: 120px 40px 60px; }
+  .hero { padding: 76px 40px 100px; }
 }
 
 .hero::after {

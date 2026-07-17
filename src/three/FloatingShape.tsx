@@ -1,4 +1,10 @@
 "use client"
+// Reads CSS custom properties at runtime. Fallback ensures SSR safety.
+function cssVar(name: string, fallback: string): string {
+  if (typeof document === "undefined") return fallback
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback
+}
+
 
 import { useRef, useMemo } from "react"
 import { useFrame } from "@react-three/fiber"
@@ -13,7 +19,7 @@ interface FloatingShapeProps {
 export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
   const meshRef = useRef<THREE.Mesh>(null)
 
-  const colorRef = useRef(new THREE.Color("#38bdf8"))
+  const colorRef = useRef(new THREE.Color(cssVar("--color-accent", "#38bdf8")))
 
   // Pick one geometry at random for variety each load
   const geometry = useMemo(() => {
@@ -44,9 +50,9 @@ export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
     material.opacity = scale
 
     // Color-shift from cyan → violet → warm as scroll progresses
-    const cyan = new THREE.Color("#38bdf8")
-    const violet = new THREE.Color("#a78bfa")
-    const warm = new THREE.Color("#e7c59a")
+    const cyan = new THREE.Color(cssVar("--color-accent", "#38bdf8"))
+    const violet = new THREE.Color(cssVar("--color-accent-2", "#a78bfa"))
+    const warm = new THREE.Color(cssVar("--color-warm-glow", "#e7c59a"))
     const t = Math.min(scroll * 2, 1)
     const targetColor = t < 0.5
       ? cyan.clone().lerp(violet, t * 2)
@@ -59,7 +65,7 @@ export function FloatingShape({ mouse, scrollProgress }: FloatingShapeProps) {
     <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
       <mesh ref={meshRef} geometry={geometry}>
         <meshPhysicalMaterial
-          color="#38bdf8"
+          color={cssVar("--color-accent", "#38bdf8")}
           metalness={0.3}
           roughness={0.4}
           transparent
