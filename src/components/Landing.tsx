@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic"
 import { Nav } from "./Nav"
 import { Hero } from "./Hero"
-import { CursorFollower } from "./CursorFollower"
 
 const About = dynamic(() => import("./About").then((m) => ({ default: m.About })), { ssr: true })
 const Stack = dynamic(() => import("./Stack").then((m) => ({ default: m.Stack })), { ssr: true })
@@ -14,7 +13,6 @@ const Footer = dynamic(() => import("./Footer").then((m) => ({ default: m.Footer
 export function Landing() {
   return (
     <>
-      <CursorFollower />
       <Nav />
       <main id="main-content" role="main">
         <Hero />

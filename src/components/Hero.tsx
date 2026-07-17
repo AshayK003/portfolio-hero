@@ -71,7 +71,6 @@ export function Hero() {
   const subRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
   const scrollProgress = useScrollManager()
@@ -95,7 +94,7 @@ export function Hero() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     if (prefersReducedMotion) {
-      ;[badgeRef, subRef, ctaRef, scrollRef].forEach((r) => {
+      ;[badgeRef, subRef, ctaRef].forEach((r) => {
         if (r.current) r.current.style.opacity = "1"
       })
       return
@@ -123,13 +122,6 @@ export function Hero() {
       { y: 12, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.7 },
       "-=0.6"
-    )
-
-    tl.fromTo(
-      scrollRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8 },
-      "-=0.2"
     )
 
     if (contentRef.current && sectionRef.current) {
@@ -192,11 +184,6 @@ export function Hero() {
           </MagneticElement>
         </div>
       </div>
-
-      <div ref={scrollRef} className="hero-scroll" style={{ opacity: 0 }} aria-hidden="true">
-        <span>Scroll</span>
-        <div className="hero-scroll-line" />
-      </div>
     </section>
   )
 }
@@ -238,7 +225,7 @@ function MagneticElement({
         x: 0,
         y: 0,
         duration: 0.7,
-        ease: "elastic.out(1, 0.3)",
+        ease: "power3.out",
       })
     }
 

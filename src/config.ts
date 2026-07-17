@@ -58,7 +58,7 @@ export const site = {
         "Describe any dataset in plain English — automatically discovers real-world schemas and generates realistic synthetic data with domain-specific imperfections. Schema Knowledge Graph, correlation engine, LLM schema verification.",
       tags: ["Python", "SDV", "NumPy", "Streamlit"],
       url: "https://github.com/AshayK003/DataSmith",
-      gradient: "from-indigo-900/20 to-violet-900/10",
+      gradient: "from-sky-900/20 to-blue-900/10",
       featured: true,
     },
     {
@@ -68,7 +68,7 @@ export const site = {
         "Production-grade PWA with PostGIS geospatial matching, role-based dashboards, karma incentives, offline support, Photo verification, OSRM routing, Supabase RLS, and CSR analytics.",
       tags: ["React", "PostGIS", "Supabase", "PWA"],
       url: "https://github.com/AshayK003/KarmaMap",
-      gradient: "from-violet-900/20 to-purple-900/10",
+      gradient: "from-cyan-900/20 to-sky-900/10",
       featured: false,
     },
     {
