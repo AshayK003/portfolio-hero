@@ -36,7 +36,7 @@ export const site = {
 
   stats: [
     { value: "15+", label: "Open Source Projects" },
-    { value: "32", label: "PR Contributions" },
+    { value: "41", label: "PR Contributions" },
     { value: "∞", label: "Problems Solved" },
   ],
 
