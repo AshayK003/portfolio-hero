@@ -35,123 +35,143 @@ export const site = {
   },
 
   stats: [
-    { value: "15+", label: "Open Source Projects" },
-    { value: "41", label: "PR Contributions" },
-    { value: "∞", label: "Problems Solved" },
-  ],
+      { value: "18", label: "Open Source Projects" },
+      { value: "41", label: "PR Contributions" },
+      { value: "20", label: "PRs Merged" },
+    ],
 
   projects: [
-    {
-      name: "NSE Sentiment",
-      tagline: "Live stock sentiment intelligence",
-      description:
-        "Multi-source sentiment + technical indicators for any NSE ticker. 504 smart aliases, RSS from 9+ sources, Bayesian sentiment blending, and FinBERT option. RSI, MACD, SMA crossover — one dashboard.",
-      tags: ["Streamlit", "Python", "NLP", "VADER"],
-      url: "https://github.com/AshayK003/nse-sentiment-analyzer",
-      gradient: "from-cyan-900/20 to-sky-900/10",
-      featured: false,
-    },
-    {
-      name: "DataSmith",
-      tagline: "Synthetic data with a real moat",
-      description:
-        "Describe any dataset in plain English — automatically discovers real-world schemas and generates realistic synthetic data with domain-specific imperfections. Schema Knowledge Graph, correlation engine, LLM schema verification.",
-      tags: ["Python", "SDV", "NumPy", "Streamlit"],
-      url: "https://github.com/AshayK003/DataSmith",
-      gradient: "from-sky-900/20 to-blue-900/10",
-      featured: true,
-    },
-    {
-      name: "KarmaMap",
-      tagline: "NGO-volunteer matching platform",
-      description:
-        "Production-grade PWA with PostGIS geospatial matching, role-based dashboards, karma incentives, offline support, Photo verification, OSRM routing, Supabase RLS, and CSR analytics.",
-      tags: ["React", "PostGIS", "Supabase", "PWA"],
-      url: "https://github.com/AshayK003/KarmaMap",
-      gradient: "from-cyan-900/20 to-sky-900/10",
-      featured: false,
-    },
-    {
-      name: "BreachAlpha",
-      tagline: "Data breach financial impact",
-      description:
-        "Event study methodology (MacKinlay 1997) + XGBoost risk scoring. Measures abnormal returns, CAR, volatility spikes, and recovery time. CLI, web dashboard, and FastAPI — built for CISO board reporting.",
-      tags: ["FastAPI", "React", "Python", "XGBoost"],
-      url: "https://github.com/AshayK003/BreachAlpha",
-      gradient: "from-amber-900/20 to-orange-900/10",
-      featured: true,
-    },
-    {
-      name: "CausalLens",
-      tagline: "Causal inference for time series",
-      description:
-        "ARIMA, Bayesian STS, difference-in-differences, and synthetic control wrapped into one interface. Counterfactual charts with p-values, 95% CIs, and downloadable PDF reports.",
-      tags: ["Streamlit", "Python", "Statsmodels"],
-      url: "https://github.com/AshayK003/CausalLens",
-      gradient: "from-blue-900/20 to-indigo-900/10",
-      featured: false,
-    },
-    {
-      name: "DeltaGrid",
-      tagline: "Paris Agreement gap analysis",
-      description:
-        "NDC gap analysis across 200+ countries. Real-time green scoring with adjustable energy sliders, Plotly choropleth maps, CSV upload, and country classification — for policymakers and researchers.",
-      tags: ["Streamlit", "Python", "Plotly"],
-      url: "https://github.com/AshayK003/DeltaGrid",
-      gradient: "from-emerald-900/20 to-teal-900/10",
-      featured: false,
-    },
-    {
-      name: "NSE Risk Scanner",
-      tagline: "Portfolio risk analytics for NSE investors",
-      description:
-        "VaR 95/99, Sharpe, Sortino, Monte Carlo simulation, HMM regime detection, and sector concentration analysis from a single CSV upload. 355 tests, 90% coverage, zero paid APIs.",
-      tags: ["Streamlit", "Python", "NumPy", "SciPy"],
-      url: "https://github.com/AshayK003/nse-portfolio-risk-scanner",
-      gradient: "from-green-900/20 to-emerald-900/10",
-      featured: false,
-    },
-    {
-      name: "pdf-studio",
-      tagline: "PDF generation, three lines at a time",
-      description:
-        "Importable zero-dependency PDF library with pluggable backends. One call for a table, one for a chart, one for a header. Bundled fonts, auto page-break tables, running headers. Like SQLAlchemy for PDFs.",
-      tags: ["Python", "ReportLab", "PDF"],
-      url: "https://github.com/AshayK003/pdf-studio",
-      gradient: "from-rose-900/20 to-pink-900/10",
-      featured: false,
-    },
-    {
-      name: "DiffIQ",
-      tagline: "BSE filing difference analysis",
-      description:
-        "Detect what changed between corporate filings. Downloads BSE board meeting outcomes and annual reports, extracts text via pypdf, and diffs them side by side. Streamlit dashboard with historical tracking.",
-      tags: ["Streamlit", "Python", "NLP"],
-      url: "https://github.com/AshayK003/DiffIQ",
-      gradient: "from-yellow-900/20 to-amber-900/10",
-      featured: false,
-    },
-    {
-      name: "Hackathon Problems",
-      tagline: "Real-world problem statements",
-      description:
-        "36 structured problem statements across Global South AI, US Civic Tech, and Rapid Prototypes. Each comes with datasets, related papers, and MVP timeline estimates. Built for hackathons and impact projects.",
-      tags: ["Markdown", "Research", "Open Source"],
-      url: "https://github.com/AshayK003/hackathon-problem-statements",
-      gradient: "from-sky-900/20 to-blue-900/10",
-      featured: false,
-    },
-    {
-      name: "PriceSentinel",
-      tagline: "Competitor price monitoring",
-      description:
-        "Chrome extension (WXT + Preact) with FastAPI backend that monitors competitor pricing pages. Local-first with chrome.storage, optional polling/notifications. Zero infrastructure — no Redis, Celery, or SendGrid.",
-      tags: ["WXT", "Preact", "FastAPI", "Chrome"],
-      url: "https://github.com/AshayK003/PriceSentinel",
-      gradient: "from-red-900/20 to-orange-900/10",
-      featured: false,
-    },
-  ],
+      {
+        name: "NSE Portfolio Risk Scanner",
+        tagline: "Institutional-grade risk analytics for NSE",
+        description:
+          "VaR 95/99, Sharpe, Sortino, Monte Carlo (10K), HMM regime detection, HRP optimization, stress testing, sector concentration. 355 tests, 90% coverage, zero paid APIs. **Deployed on Streamlit Cloud.**",
+        tags: ["Streamlit", "Python", "Risk Analytics"],
+        url: "https://github.com/AshayK003/nse-portfolio-risk-scanner",
+        gradient: "from-green-900/20 to-emerald-900/10",
+        featured: true,
+      },
+      {
+        name: "NSE Sentiment Analyzer",
+        tagline: "Live NSE price + multi-source sentiment",
+        description:
+          "Live NSE price + multi-source news sentiment (9+ RSS, 500+ aliases). Bayesian blending, VADER, technical overlays. **10★, 109 tests, AGPL v3, fully free.**",
+        tags: ["Streamlit", "Python", "NLP", "Finance"],
+        url: "https://github.com/AshayK003/nse-sentiment-analyzer",
+        gradient: "from-cyan-900/20 to-sky-900/10",
+        featured: true,
+      },
+      {
+        name: "FII/DII Dashboard",
+        tagline: "Institutional flow tracking from NSE India",
+        description:
+          "Daily institutional flow tracking from NSE India. Trend charts, FII vs DII comparison, rolling averages, Nifty 50 overlay. **5 forks, daily Telegram cron.**",
+        tags: ["Streamlit", "Python", "nsepython"],
+        url: "https://github.com/AshayK003/fii-dii-dashboard",
+        gradient: "from-blue-900/20 to-indigo-900/10",
+        featured: false,
+      },
+      {
+        name: "BreachAlpha",
+        tagline: "Data breach financial impact quantification",
+        description:
+          "Event study methodology (MacKinlay 1997) + XGBoost risk scoring. Measures abnormal returns, CAR, volatility spikes, and recovery time. CLI, web dashboard, and FastAPI — built for CISO board reporting. **Deployed on Render (Docker), 144 tests.**",
+        tags: ["FastAPI", "React", "Python", "Docker"],
+        url: "https://github.com/AshayK003/BreachAlpha",
+        gradient: "from-amber-900/20 to-orange-900/10",
+        featured: true,
+      },
+      {
+        name: "StackTrade",
+        tagline: "Free intraday probability-stacking for NSE",
+        description:
+          "ORB + hourly MA20 trend filter + support/resistance. **94.5% WR backtest (849 trades, 25 stocks × 60 days), zero direct losses, 52% scratch rate.** Live-trading ready.",
+        tags: ["Streamlit", "Python", "Trading"],
+        url: "https://github.com/AshayK003/StackTrade",
+        gradient: "from-rose-900/20 to-pink-900/10",
+        featured: false,
+      },
+      {
+        name: "DeltaGrid",
+        tagline: "Paris Agreement NDC progress tracker",
+        description:
+          "NDC gap analysis across 200+ countries. Green scoring, gap analysis, interactive choropleth maps. **Deployed on Streamlit Cloud.**",
+        tags: ["Streamlit", "Python", "Climate"],
+        url: "https://github.com/AshayK003/DeltaGrid",
+        gradient: "from-emerald-900/20 to-teal-900/10",
+        featured: false,
+      },
+      {
+        name: "DataSmith",
+        tagline: "Synthetic data generator with a real moat",
+        description:
+          "Describe any dataset in plain English — Schema Knowledge Graph (crawls real schemas), Domain Imperfection Fingerprints (realistic noise), Community Schema Library (network effects). AGPL v3.",
+        tags: ["Python", "Streamlit", "SDV", "NumPy"],
+        url: "https://github.com/AshayK003/DataSmith",
+        gradient: "from-sky-900/20 to-blue-900/10",
+        featured: false,
+      },
+      {
+        name: "pdf-studio",
+        tagline: "PDF generation, three lines at a time",
+        description:
+          "ReportLab backend, 3 bundled fonts (Inter, Lora, JetBrains Mono), two-pass rendering for page numbers. Table + chart + header in 3 lines.",
+        tags: ["Python", "ReportLab", "PDF"],
+        url: "https://github.com/AshayK003/pdf-studio",
+        gradient: "from-rose-900/20 to-pink-900/10",
+        featured: false,
+      },
+      {
+        name: "CausalLens",
+        tagline: "Causal inference for time series",
+        description:
+          "Did that policy actually work? ARIMA, Bayesian STS, Diff-in-Diff, Synthetic Control. Counterfactual charts with p-values, 95% CIs, downloadable PDF reports.",
+        tags: ["Streamlit", "Python", "Causal Inference"],
+        url: "https://github.com/AshayK003/CausalLens",
+        gradient: "from-blue-900/20 to-indigo-900/10",
+        featured: false,
+      },
+      {
+        name: "DiffIQ",
+        tagline: "BSE filing difference analysis",
+        description:
+          "Downloads BSE board meeting outcomes/annual reports, extracts text via pypdf, diffs side-by-side. Streamlit dashboard with historical tracking. Pure Python + SQLite, zero external services.",
+        tags: ["Streamlit", "Python", "NLP"],
+        url: "https://github.com/AshayK003/DiffIQ",
+        gradient: "from-yellow-900/20 to-amber-900/10",
+        featured: false,
+      },
+      {
+        name: "KarmaMap",
+        tagline: "NGO-volunteer matching platform",
+        description:
+          "Production-grade PWA with PostGIS geospatial matching, role-based dashboards, karma incentives, offline support, Photo verification, OSRM routing, Supabase RLS, CSR analytics. Frontend → Vercel, Backend → Render (Docker), DB → Supabase.",
+        tags: ["React", "PostGIS", "Supabase", "PWA", "TypeScript"],
+        url: "https://github.com/AshayK003/KarmaMap",
+        gradient: "from-cyan-900/20 to-sky-900/10",
+        featured: false,
+      },
+      {
+        name: "Hackathon Problems",
+        tagline: "36 curated real-world problems",
+        description:
+          "Global South AI, US Civic Tech, Rapid Prototypes — each with datasets, papers, and MVP timelines. **7★, 1 fork.**",
+        tags: ["Research", "Markdown", "Open Data"],
+        url: "https://github.com/AshayK003/hackathon-problem-statements",
+        gradient: "from-fuchsia-900/20 to-pink-900/10",
+        featured: false,
+      },
+      {
+        name: "PriceSentinel",
+        tagline: "Competitor pricing monitor",
+        description:
+          "Chrome extension (WXT + Preact, 31KB) + FastAPI backend with APScheduler + SQLite. Local-first, optional cloud sync. Zero infra — no Redis, Celery, SendGrid, or Playwright SDK for MVP.",
+        tags: ["WXT", "Preact", "FastAPI", "Chrome Extension"],
+        url: "https://github.com/AshayK003/PriceSentinel",
+        gradient: "from-blue-900/20 to-indigo-900/10",
+        featured: false,
+      },
+    ],
 
   stack: [
     {
