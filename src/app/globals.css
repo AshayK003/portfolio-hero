@@ -77,7 +77,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 @media(min-width:900px){
   .hero{height:100dvh;overflow:visible}
   .hero-stage{position:absolute;inset:0;display:block;padding:0 40px}
-  .hero-portrait-wrapper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(680px,46vw);max-width:680px;aspect-ratio:1376/768;max-height:72dvh}
+  .hero-portrait-wrapper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1080px,68vw);max-width:1080px;aspect-ratio:1376/768;max-height:88dvh}
   .hero-portrait{border-radius:16px}
   .hero-glass{position:absolute;width:auto;max-width:none;text-align:left}
   .hero-glass--pillars{left:32px;top:84px;padding:10px 14px}
