@@ -48,8 +48,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .hero{position:relative;background:var(--color-paper);padding-top:64px;overflow:hidden;border-bottom:1px solid var(--color-ink-faint)}
 .hero-stage{position:relative;width:100%;min-height:calc(100dvh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:16px}
 @media(min-width:600px){.hero-stage{min-height:620px;padding:28px;gap:20px}}
-.hero-portrait-wrapper{position:relative;width:100%;max-width:520px;aspect-ratio:4/5;flex-shrink:0}
-.hero-portrait{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.02);border-radius:16px;background:var(--color-paper)}
+.hero-portrait-wrapper{position:relative;width:100%;max-width:520px;aspect-ratio:1376/768;flex-shrink:0}
+.hero-portrait{width:100%;height:100%;object-fit:contain;filter:contrast(1.02);border-radius:16px;background:var(--color-paper)}
 /* glass panels */
 .hero-glass{background:rgba(245,243,238,0.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.08);width:100%;max-width:420px;text-align:center}
 @media(min-width:900px){.hero-glass{width:auto;max-width:none;text-align:left}}
@@ -73,15 +73,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
   .btn-primary,.btn-ghost{width:100%;justify-content:center}
 }
 
-/* Desktop: absolute positioning overlay */
+/* Desktop: absolute positioning overlay inside a sized hero */
 @media(min-width:900px){
-  .hero{overflow:visible}
-  .hero-stage{position:absolute;inset:0;min-height:0;flex-direction:row;align-items:center;justify-content:center;padding:0 40px;gap:0}
-  .hero-portrait-wrapper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,42vw);max-width:520px;aspect-ratio:4/5;max-height:680px}
+  .hero{height:100dvh;overflow:visible}
+  .hero-stage{position:absolute;inset:0;display:block;padding:0 40px}
+  .hero-portrait-wrapper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(680px,46vw);max-width:680px;aspect-ratio:1376/768;max-height:72dvh}
   .hero-portrait{border-radius:16px}
   .hero-glass{position:absolute;width:auto;max-width:none;text-align:left}
-  .hero-glass--pillars{left:32px;top:32px;padding:10px 14px}
-  .hero-glass--headline{right:32px;top:32px;text-align:left;max-width:420px}
+  .hero-glass--pillars{left:32px;top:84px;padding:10px 14px}
+  .hero-glass--headline{right:32px;top:84px;max-width:420px}
   .hero-glass--identity{left:32px;bottom:32px;text-align:left}
   .hero-glass--links{right:32px;bottom:32px;text-align:left;max-width:420px}
   .hero-cta-row{justify-content:flex-start}

@@ -10,10 +10,10 @@ export function Hero() {
           <Image
             src="/hero-portrait.png"
             alt="Ashay Kushwaha — Systems Builder"
-            width={520}
-            height={650}
+            width={1376}
+            height={768}
             priority
-            sizes="(max-width: 599px) 100vw, (max-width: 899px) 92vw, 520px"
+            sizes="(max-width: 899px) 92vw, 680px"
             className="hero-portrait"
           />
         </div>
