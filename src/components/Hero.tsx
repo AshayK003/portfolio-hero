@@ -13,7 +13,7 @@ export function Hero() {
             width={1376}
             height={768}
             priority
-            sizes="(max-width: 899px) 92vw, 680px"
+            sizes="(max-width: 899px) 96vw, 1320px"
             className="hero-portrait"
           />
         </div>
