@@ -52,6 +52,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .hero-portrait{width:100%;height:100%;object-fit:contain;filter:contrast(1.02);border-radius:16px;background:var(--color-paper)}
 /* glass panels */
 .hero-glass{background:rgba(245,243,238,0.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.08);width:100%;max-width:420px;text-align:center}
+@media(max-width:899px){
+  .hero-glass{padding:20px 18px}
+  .hero-glass--pillars{padding:18px 20px !important}
+  .hero-glass--headline{padding:22px 20px}
+  .hero-glass--identity{padding:20px 18px}
+  .hero-glass--links{padding:20px 18px}
+  .hero-stage{gap:18px}
+}
 @media(min-width:900px){.hero-glass{width:auto;max-width:none;text-align:left}}
 .hero-glass--pillars{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.9;color:var(--color-ink);padding:10px 14px}
 .hero-glass--headline{text-align:center}
