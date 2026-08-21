@@ -1,29 +1,36 @@
 import type { Metadata, Viewport } from "next"
-import { Outfit, JetBrains_Mono } from "next/font/google"
+import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const outfit = Outfit({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-aeonik",
+  variable: "--font-display",
 })
 
-const jetbrains = JetBrains_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
-  variable: "--font-input",
+  variable: "--font-mono",
+})
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono2",
 })
 
 export const metadata: Metadata = {
   title: "Ashay Kushwaha — Systems Builder",
   description:
-    "Building real-world systems that solve real problems. Open-source tools for cybersecurity, climate policy, causal inference, and social impact.",
+    "I build systems that turn complexity into tools anyone can use. 18 open-source systems — risk models, causal engines, breach analytics — MIT-licensed, tested, deployed.",
   openGraph: {
     title: "Ashay Kushwaha — Systems Builder",
     description:
-      "Building real-world systems that solve real problems. Open-source tools for cybersecurity, climate policy, causal inference, and social impact.",
+      "I build systems that turn complexity into tools anyone can use. 18 open-source systems — MIT-licensed, tested, deployed.",
     type: "website",
     locale: "en_US",
     siteName: "Ashay Kushwaha",
@@ -32,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ashay Kushwaha — Systems Builder",
     description:
-      "Building real-world systems that solve real problems. Open-source tools for cybersecurity, climate policy, causal inference, and social impact.",
+      "I build systems that turn complexity into tools anyone can use.",
     creator: "@sentinelcipher",
   },
   robots: { index: true, follow: true },
@@ -40,7 +47,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#F5F3EE",
   width: "device-width",
   initialScale: 1,
 }
@@ -51,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${geist.variable} ${mono.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   )

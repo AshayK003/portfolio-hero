@@ -1,181 +1,60 @@
 "use client"
-
-import { useEffect, useRef } from "react"
-import { Zap, Link2, Globe, Target, Code2, GitPullRequest, Infinity } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { site } from "@/config"
 
-gsap.registerPlugin(ScrollTrigger)
-
-const statIcons: Record<string, React.ReactNode> = {
-  "Open Source Projects": <Code2 size={18} />,
-  "PR Contributions": <GitPullRequest size={18} />,
-  "Problems Solved": <Infinity size={18} />,
-}
-
 export function About() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const statsRef = useRef<HTMLDivElement>(null)
-  const strengthsRef = useRef<HTMLDivElement>(null)
-  const philosophyRef = useRef<HTMLDivElement>(null)
-  const interestsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReducedMotion) return
-
-    const ctx = gsap.context(() => {
-      if (contentRef.current) {
-        gsap.fromTo(
-          contentRef.current.querySelectorAll(".reveal-up"),
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-            stagger: 0.12,
-            scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-          }
-        )
-      }
-
-      if (statsRef.current) {
-        gsap.fromTo(
-          statsRef.current.querySelectorAll(".stat-card"),
-          { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: "power3.out",
-            stagger: 0.1,
-            scrollTrigger: { trigger: statsRef.current, start: "top 85%" },
-          }
-        )
-      }
-
-      if (strengthsRef.current) {
-        gsap.fromTo(
-          strengthsRef.current.querySelectorAll(".strength-chip"),
-          { x: -20, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.08,
-            scrollTrigger: { trigger: strengthsRef.current, start: "top 80%" },
-          }
-        )
-      }
-
-      if (philosophyRef.current) {
-        gsap.fromTo(
-          philosophyRef.current,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: philosophyRef.current, start: "top 80%" },
-          }
-        )
-      }
-
-      if (interestsRef.current) {
-        gsap.fromTo(
-          interestsRef.current.querySelectorAll(".interest-chip"),
-          { scale: 0.9, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.4,
-            ease: "power3.out",
-            stagger: 0.06,
-            scrollTrigger: { trigger: interestsRef.current, start: "top 85%" },
-          }
-        )
-      }
-    })
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section id="about" className="section" ref={sectionRef} aria-label="About me">
+    <section id="about" className="section" aria-label="About me">
       <div className="section-header">
-        <div className="section-label">
-          <span className="section-label-line" aria-hidden="true" />
-          <span className="section-label-text">About</span>
-          <span className="section-label-line" aria-hidden="true" />
-        </div>
+        <div className="section-label">About</div>
         <h2 className="section-title">
-          Data meets&nbsp;
-          <span style={{ color: "#38bdf8" }}>impact</span>.
+          Data meets <span style={{ color: "var(--color-crimson)" }}>impact.</span>
         </h2>
       </div>
 
       <div className="about-grid">
-        <div ref={contentRef}>
-          <p className="about-summary reveal-up">{site.about.summary}</p>
-
-          <div ref={statsRef} className="stats-row">
-            {site.stats.map((stat) => (
-              <div key={stat.label} className="stat-card">
-                <div className="stat-icon" aria-hidden="true">
-                  {statIcons[stat.label] || <Code2 size={18} />}
-                </div>
-                <div className="stat-stat">
-                  <div className="stat-value">{stat.value}</div>
-                  <div className="stat-label">{stat.label}</div>
+        <div>
+          <p className="about-summary">{site.about.summary}</p>
+          <div className="stats-row">
+            {site.stats.map((s) => (
+              <div key={s.label} className="stat-card">
+                <div>
+                  <div className="stat-value">{s.value}</div>
+                  <div className="stat-label">{s.label}</div>
                 </div>
               </div>
             ))}
           </div>
+          <div className="philosophy">
+            <div className="philosophy-title">{site.about.philosophy.title}</div>
+            <p className="philosophy-text">{site.about.philosophy.body}</p>
+            <p className="philosophy-text" style={{ marginTop: 8 }}>
+              {site.about.philosophy.body2}
+            </p>
+          </div>
         </div>
 
         <div>
-          <div ref={strengthsRef} className="strengths-section">
-            <h3 style={{ fontSize: 14, fontWeight: 600, color: "var(--color-smoke)", marginBottom: 16, letterSpacing: "-0.01em" }}>
-              What I bring
-            </h3>
-            <div className="strengths-grid">
-              {site.about.strengths.map((strength, i) => (
-                <div key={strength} className="strength-chip" style={{ opacity: 0 }}>
-                  <span className="strength-icon" aria-hidden="true">
-                    {i === 0 && <Zap size={14} />}
-                    {i === 1 && <Link2 size={14} />}
-                    {i === 2 && <Globe size={14} />}
-                    {i === 3 && <Target size={14} />}
-                  </span>
-                  {strength}
-                </div>
-              ))}
-            </div>
+          <div style={{ marginBottom: 14, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-ink-muted)" }}>
+            What I bring
+          </div>
+          <div>
+            {site.about.strengths.map((s) => (
+              <span key={s} className="strength-chip">
+                {s}
+              </span>
+            ))}
           </div>
 
-          <div ref={philosophyRef} className="about-philosophy" style={{ opacity: 0 }}>
-            <h3 className="philosophy-title">{site.about.philosophy.title}</h3>
-            <p className="philosophy-text">{site.about.philosophy.body}</p>
-            <p className="philosophy-text" style={{ marginTop: 12 }}>{site.about.philosophy.body2}</p>
+          <div style={{ marginTop: 18, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-ink-muted)", marginBottom: 8 }}>
+            Interests
           </div>
-
-          {site.about.interests && site.about.interests.length > 0 && (
-            <div ref={interestsRef} className="about-interests">
-              <h3 style={{ fontSize: 14, fontWeight: 600, color: "var(--color-smoke)", marginBottom: 12, letterSpacing: "-0.01em" }}>
-                Interests
-              </h3>
-              <div className="interests-row">
-                {site.about.interests.map((interest) => (
-                  <span key={interest} className="interest-chip">{interest}</span>
-                ))}
-              </div>
-            </div>
-          )}
+          <div>
+            {site.about.interests.map((i) => (
+              <span key={i} className="interest-chip">
+                {i}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,128 +1,46 @@
 "use client"
-
-import { useEffect, useRef } from "react"
-import { Send, ArrowRight, GitBranch, ExternalLink, Briefcase, BookOpen } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ArrowRight, GitBranch, ExternalLink, Briefcase, BookOpen } from "lucide-react"
 import { site } from "@/config"
 
-gsap.registerPlugin(ScrollTrigger)
+const icons: Record<string, React.ReactNode> = {
+  GitHub: <GitBranch size={15} />,
+  X: <ExternalLink size={15} />,
+  LinkedIn: <Briefcase size={15} />,
+  Medium: <BookOpen size={15} />,
+}
 
 export function Contact() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const leftRef = useRef<HTMLDivElement>(null)
-  const rightRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReducedMotion) return
-
-    const ctx = gsap.context(() => {
-      if (leftRef.current) {
-        gsap.fromTo(
-          leftRef.current,
-          { x: -30, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-          }
-        )
-      }
-
-      if (rightRef.current) {
-        gsap.fromTo(
-          rightRef.current,
-          { x: 30, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-          }
-        )
-      }
-    })
-
-    return () => ctx.revert()
-  }, [])
-
-  const socialIcons: Record<string, React.ReactNode> = {
-    GitHub: <GitBranch size={15} />,
-    X: <ExternalLink size={15} />,
-    LinkedIn: <Briefcase size={15} />,
-    Medium: <BookOpen size={15} />,
-  }
-
   return (
-    <section id="contact" className="section" ref={sectionRef} aria-label="Contact">
+    <section id="contact" className="section" aria-label="Contact">
       <div className="section-header">
-        <div className="section-label">
-          <span className="section-label-line" aria-hidden="true" />
-          <span className="section-label-text">Contact</span>
-          <span className="section-label-line" aria-hidden="true" />
-        </div>
+        <div className="section-label">Contact</div>
         <h2 className="section-title">Let&apos;s build something together.</h2>
-        <p className="section-subtitle">
-          Open to collaborations, research partnerships, and conversations at the
-          intersection of data, security, and social impact.
-        </p>
+        <p className="section-subtitle">Open to collaborations, research partnerships, and conversations at the intersection of data, security, and social impact.</p>
       </div>
 
-      <div className="contact-section">
-        <div ref={leftRef} style={{ opacity: 0 }}>
-          <h3 className="contact-heading">
-            Find me&nbsp;
-            <span style={{ color: "var(--color-accent)" }}>online</span>.
-          </h3>
-          <p className="contact-text">
-            All my work is open-source and MIT-licensed. I&apos;m most active on
-            GitHub and LinkedIn — pick your platform.
-          </p>
-          <div className="contact-links">
-            {site.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link"
-                aria-label={`Visit Ashay on ${social.label}`}
-              >
-                <span className="contact-link-icon" aria-hidden="true">
-                  {socialIcons[social.label]}
-                </span>
-                <span className="contact-link-label">{social.label}</span>
-                <ArrowRight size={14} className="contact-link-arrow" aria-hidden="true" />
+      <div className="contact-grid">
+        <div className="contact-card">
+          <div style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em" }}>
+            Find me <span style={{ color: "var(--color-crimson)" }}>online.</span>
+          </div>
+          <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(10,10,10,0.65)", marginTop: 8 }}>All my work is open-source and MIT-licensed. I&apos;m most active on GitHub and LinkedIn.</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
+            {site.socials.map((s) => (
+              <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer" className="contact-link">
+                <span>{icons[s.label]}</span>
+                <span style={{ fontWeight: 500, fontSize: 13 }}>{s.label}</span>
+                <ArrowRight size={13} style={{ marginLeft: "auto" }} />
               </a>
             ))}
           </div>
         </div>
 
-        <div ref={rightRef} style={{ opacity: 0 }}>
-          <div className="contact-action-card">
-            <div className="contact-action-icon" aria-hidden="true">
-              <Send size={22} />
-            </div>
-            <h3 className="contact-action-title">Let&apos;s talk.</h3>
-            <p className="contact-action-text">
-              Interesting project, research collaboration, or just want to geek out about
-              causal inference? I&apos;m here for it.
-            </p>
-            <a
-              href={site.socials.find((s) => s.label === "LinkedIn")?.url || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              aria-label="Connect on LinkedIn"
-            >
-              Connect on LinkedIn
-              <ArrowRight size={14} />
-            </a>
-          </div>
+        <div className="contact-card" style={{ background: "var(--color-ink)", color: "var(--color-paper)", borderColor: "transparent" }}>
+          <div style={{ fontSize: 18, fontWeight: 600 }}>Let&apos;s talk.</div>
+          <p style={{ fontSize: 14, lineHeight: 1.6, opacity: 0.7, marginTop: 8 }}>Interesting project, research collab, or just want to geek out about causal inference? I&apos;m here for it.</p>
+          <a href={site.socials.find((s) => s.label === "LinkedIn")?.url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 16, background: "var(--color-paper)", color: "var(--color-ink)" }}>
+            Connect on LinkedIn <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </section>

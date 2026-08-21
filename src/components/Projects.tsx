@@ -1,107 +1,140 @@
 "use client"
-
-import { useEffect, useRef } from "react"
-import { TrendingUp, Map, Shield, BarChart3, Globe, Code2, ArrowRight, LineChart, Database, FileText, Search, Lightbulb } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useState } from "react"
+import { ArrowRight, TrendingUp, Map, Shield, BarChart3, Globe, Database, FileText, Search, Lightbulb, Code2 } from "lucide-react"
 import { site } from "@/config"
 
-gsap.registerPlugin(ScrollTrigger)
-
 const projectIcons: Record<string, React.ReactNode> = {
-  "NSE Sentiment": <TrendingUp size={18} />,
+  "NSE Sentiment Analyzer": <TrendingUp size={18} />,
   KarmaMap: <Map size={18} />,
   BreachAlpha: <Shield size={18} />,
   CausalLens: <BarChart3 size={18} />,
   DeltaGrid: <Globe size={18} />,
   DataSmith: <Database size={18} />,
-  "NSE Risk Scanner": <LineChart size={18} />,
+  "NSE Portfolio Risk Scanner": <BarChart3 size={18} />,
   "pdf-studio": <FileText size={18} />,
   PriceSentinel: <Search size={18} />,
   "Hackathon Problems": <Lightbulb size={18} />,
+  "FII/DII Dashboard": <TrendingUp size={18} />,
+  StackTrade: <TrendingUp size={18} />,
 }
 
 export function Projects() {
-  const ref = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReducedMotion) return
-
-    const ctx = gsap.context(() => {
-      const cards = gridRef.current?.querySelectorAll(".project-card")
-      if (!cards?.length) return
-
-      gsap.set(cards, {
-        y: 60,
-        opacity: 0,
-      })
-
-      gsap.to(cards, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 75%",
-        },
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
+  const featured = site.projects.filter((p) => p.featured)
+  const rest = site.projects.filter((p) => !p.featured)
+  const [showAll, setShowAll] = useState(false)
+  const hero = featured[0]
+  const bento: (typeof site.projects)[number][] = [...featured.slice(1), ...rest.slice(0, 3)]
 
   return (
-    <section id="projects" className="section" ref={ref} aria-label="Selected works">
+    <section id="projects" className="section" aria-label="Selected works">
       <div className="section-header">
-        <div className="section-label">
-          <span className="section-label-line" aria-hidden="true" />
-          <span className="section-label-text">Projects</span>
-          <span className="section-label-line" aria-hidden="true" />
-        </div>
+        <div className="section-label">Selected Work</div>
         <h2 className="section-title">Systems that solve real problems.</h2>
         <p className="section-subtitle">
-          Open-source, MIT-licensed, built to solve real problems. Each project ships as a
-          complete, production-ready tool.
+          Open-source, MIT-licensed. Each project ships as a complete, production-ready tool — not a demo.
         </p>
       </div>
 
-      <div ref={gridRef} className="projects-grid">
-        {site.projects.map((project) => (
+      {hero && (
+        <a
+          href={hero.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="projects-feature"
+          aria-label={`${hero.name} — ${hero.tagline}`}
+        >
+          <div>
+            <div className="section-label" style={{ marginBottom: 8 }}>
+              Featured — {hero.tags.slice(0, 2).join(" · ")}
+            </div>
+            <div style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>{hero.name}</div>
+            <div style={{ fontSize: 15, color: "rgba(10,10,10,0.6)", marginTop: 4 }}>{hero.tagline}</div>
+            <div style={{ fontSize: 14, lineHeight: 1.6, marginTop: 12, color: "rgba(10,10,10,0.72)" }}>{hero.description}</div>
+            <div className="feature-metrics">
+              {hero.tags.map((t) => (
+                <span key={t} className="metric-pill">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 6, color: "var(--color-crimson)", fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 600 }}>
+              View on GitHub <ArrowRight size={14} />
+            </div>
+          </div>
+          <div style={{ background: "var(--color-paper)", borderRadius: 12, border: "1px solid var(--color-ink-faint)", display: "grid", placeItems: "center", minHeight: 220, color: "var(--color-ink-muted)" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>Preview — {hero.name}</span>
+          </div>
+        </a>
+      )}
+
+      <div className="bento">
+        {bento.map((project) => (
           <a
             key={project.name}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`project-card${project.featured ? " featured" : ""}`}
-            aria-label={`View ${project.name} on GitHub — ${project.tagline}`}
+            className="project-card"
+            aria-label={`View ${project.name} on GitHub`}
           >
-            <div className="project-card-gradient" style={{ background: project.gradient?.replace("/20", "/10") || "transparent" }} />
-            <div className="project-icon" aria-hidden="true">
-              {projectIcons[project.name] || <Code2 size={18} />}
+            <div className="project-top">
+              <span className="project-icon" aria-hidden="true">
+                {projectIcons[project.name] || <Code2 size={18} />}
+              </span>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(10,10,10,0.5)" }}>
+                {project.tags[0]}
+              </span>
             </div>
-            <div className="project-body">
+            <div className="project-title">{project.name}</div>
+            <div className="project-tagline">{project.tagline}</div>
+            <div className="project-desc">{project.description}</div>
+            <div className="project-tags">
+              {project.tags.map((tag) => (
+                <span key={tag} className="project-tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="project-footer">
+              View on GitHub <ArrowRight size={13} />
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {!showAll ? (
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <button onClick={() => setShowAll(true)} className="btn-ghost">
+            View all {site.projects.length} systems on GitHub <ArrowRight size={14} />
+          </button>
+        </div>
+      ) : (
+        <div className="bento" style={{ marginTop: 16 }}>
+          {rest.slice(3).map((project) => (
+            <a
+              key={project.name}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card"
+            >
               <div className="project-title">{project.name}</div>
               <div className="project-tagline">{project.tagline}</div>
               <div className="project-desc">{project.description}</div>
               <div className="project-tags">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="project-tag">{tag}</span>
+                  <span key={tag} className="project-tag">
+                    {tag}
+                  </span>
                 ))}
               </div>
               <div className="project-footer">
-                <span className="project-link">
-                  View on GitHub
-                  <ArrowRight size={13} className="project-link-arrow" />
-                </span>
+                View on GitHub <ArrowRight size={13} />
               </div>
-            </div>
-          </a>
-        ))}
-      </div>
+            </a>
+          ))}
+        </div>
+      )}
     </section>
   )
 }
