@@ -202,9 +202,9 @@ export const site = {
   ],
 
   socials: [
-    { label: "GitHub", url: "https://github.com/AshayK003", icon: "Github" },
-    { label: "X", url: "https://x.com/sentinelcipher", icon: "Twitter" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/ashay-kushwaha-7a3101266", icon: "Linkedin" },
-    { label: "Medium", url: "https://medium.com/@darkcharon3301_96987", icon: "Medium" },
-  ],
+      { label: "GitHub", url: "https://github.com/AshayK003", icon: "Github" },
+      { label: "X", url: "https://x.com/sentinelcipher", icon: "Twitter" },
+      { label: "LinkedIn", url: "https://linkedin.com/in/ashay-kushwaha-7a3101266", icon: "Linkedin" },
+      { label: "Medium", url: "https://medium.com/@sentinelcipher3301", icon: "Medium" },
+    ],
 } as const
