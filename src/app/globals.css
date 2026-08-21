@@ -44,43 +44,47 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .mobile-overlay.open{opacity:1;pointer-events:auto}
 .mobile-nav-link{font-size:26px;font-weight:600;letter-spacing:-0.02em}
 
-/* HERO — full PNG, no crop, glassmorphism panels */
+/* HERO — full PNG, glassmorphism panels, mobile-first stacked layout */
 .hero{position:relative;background:var(--color-paper);padding-top:64px;overflow:hidden;border-bottom:1px solid var(--color-ink-faint)}
-.hero-full{position:relative;width:100%;height:calc(100dvh - 64px);min-height:560px;max-height:820px;overflow:hidden;background:var(--color-paper)}
-@media(max-width:900px){.hero-full{height:auto;min-height:0;aspect-ratio:16/10;max-height:none}}
-.hero-full-img{object-fit:contain;object-position:center top;background:var(--color-paper)}
-@media(max-width:900px){.hero-full-img{object-fit:cover;object-position:center top}}
-/* glass */
-.hero-glass{position:absolute;background:rgba(245,243,238,0.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.55);border-radius:14px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.08)}
-.hero-glass--pillars{left:20px;top:20px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.9;color:var(--color-ink);padding:10px 14px}
-@media(max-width:900px){.hero-glass--pillars{display:none}}
-.hero-glass--headline{right:20px;top:20px;max-width:380px}
-@media(max-width:1100px){.hero-glass--headline{max-width:320px}}
-@media(max-width:900px){.hero-glass--headline{left:12px;right:12px;top:12px;max-width:none}}
-.hero-glass--bottom-left{left:20px;bottom:20px}
-@media(max-width:900px){.hero-glass--bottom-left{position:absolute;left:12px;right:12px;bottom:12px;max-width:none;padding:12px}}
-.hero-glass--bottom-right{right:20px;bottom:20px;max-width:380px}
-@media(max-width:900px){.hero-glass--bottom-right{right:12px;left:12px;bottom:12px;max-width:none;padding:12px}}
-@media(max-width:500px){
-  .hero-glass--bottom-left,
-  .hero-glass--bottom-right{
-    left:8px;right:8px;bottom:8px;padding:10px
-  }
-  .hero-glass--headline{left:8px;right:8px;top:8px;padding:10px}
-}
+.hero-stage{position:relative;width:100%;min-height:calc(100dvh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:16px}
+@media(min-width:600px){.hero-stage{min-height:620px;padding:28px;gap:20px}}
+.hero-portrait-wrapper{position:relative;width:100%;max-width:520px;aspect-ratio:4/5;flex-shrink:0}
+.hero-portrait{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.02);border-radius:16px;background:var(--color-paper)}
+/* glass panels */
+.hero-glass{background:rgba(245,243,238,0.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.08);width:100%;max-width:420px;text-align:center}
+@media(min-width:900px){.hero-glass{width:auto;max-width:none;text-align:left}}
+.hero-glass--pillars{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.9;color:var(--color-ink);padding:10px 14px}
+.hero-glass--headline{text-align:center}
+@media(min-width:900px){.hero-glass--headline{text-align:left;max-width:420px}}
+.hero-glass--identity{text-align:center}
+.hero-glass--links{text-align:center;max-width:420px}
 .hero-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-ink-muted);margin-bottom:8px}
-.hero-title{font-size:clamp(24px,3vw,36px);line-height:1.08;letter-spacing:-0.03em;font-weight:500}
+.hero-title{font-size:clamp(24px,3.5vw,36px);line-height:1.08;letter-spacing:-0.03em;font-weight:500}
 .hero-title strong{font-weight:700;text-decoration:underline;text-decoration-color:var(--color-crimson);text-decoration-thickness:3px;text-underline-offset:6px}
 .hero-korean{font-size:18px;line-height:1.3;letter-spacing:-0.02em;margin-bottom:8px}
+@media(max-width:500px){.hero-korean{font-size:16px}}
 .hero-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;line-height:1.6;color:var(--color-ink)}
 .hero-links-title{font-size:13px;font-weight:600;letter-spacing:-0.01em;margin-bottom:8px}
-.hero-link{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12.5px;line-height:1.7;color:var(--color-ink);transition:color 0.2s}
+.hero-link{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-mono);font-size:12.5px;line-height:1.7;color:var(--color-ink);transition:color 0.2s}
 .hero-link:hover{color:var(--color-crimson)}
-.hero-cta-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-@media(max-width:900px){.hero-link{font-size:11.5px}.hero-cta-row{gap:8px}.hero-title{font-size:20px}}
+.hero-cta-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;justify-content:center}
 @media(max-width:500px){
   .hero-cta-row{flex-direction:column;align-items:stretch;gap:8px}
   .btn-primary,.btn-ghost{width:100%;justify-content:center}
+}
+
+/* Desktop: absolute positioning overlay */
+@media(min-width:900px){
+  .hero{overflow:visible}
+  .hero-stage{position:absolute;inset:0;min-height:0;flex-direction:row;align-items:center;justify-content:center;padding:0 40px;gap:0}
+  .hero-portrait-wrapper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,42vw);max-width:520px;aspect-ratio:4/5;max-height:680px}
+  .hero-portrait{border-radius:16px}
+  .hero-glass{position:absolute;width:auto;max-width:none;text-align:left}
+  .hero-glass--pillars{left:32px;top:32px;padding:10px 14px}
+  .hero-glass--headline{right:32px;top:32px;text-align:left;max-width:420px}
+  .hero-glass--identity{left:32px;bottom:32px;text-align:left}
+  .hero-glass--links{right:32px;bottom:32px;text-align:left;max-width:420px}
+  .hero-cta-row{justify-content:flex-start}
 }
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--color-ink);color:var(--color-paper);font-size:13px;font-weight:600;padding:12px 20px;border-radius:8px;transition:transform 0.15s,background 0.2s}
 .btn-primary:hover{background:#1a1a1a;transform:translateY(-1px)}
