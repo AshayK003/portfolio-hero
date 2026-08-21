@@ -44,8 +44,8 @@ export function Hero() {
           <a href="https://github.com/AshayK003/nse-sentiment-analyzer" target="_blank" rel="noopener noreferrer" className="hero-link">
             NSE Sentiment — live price + news NLP <ArrowRight size={12} />
           </a>
-          <a href="https://github.com/AshayK003/BreachAlpha" target="_blank" rel="noopener noreferrer" className="hero-link">
-            BreachAlpha — breach impact quantification <ArrowRight size={12} />
+          <a href="https://github.com/AshayK003/KarmaMap" target="_blank" rel="noopener noreferrer" className="hero-link">
+            KarmaMap — NGO-volunteer matching platform <ArrowRight size={12} />
           </a>
           <a href="https://github.com/AshayK003/nse-portfolio-risk-scanner" target="_blank" rel="noopener noreferrer" className="hero-link">
             NSE Risk Scanner — VaR / Monte Carlo <ArrowRight size={12} />

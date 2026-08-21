@@ -10,7 +10,7 @@ export const site = {
 
   about: {
     summary:
-      "I engineer open-source systems that turn raw data into decisions — breach impact models, climate policy dashboards, causal inference engines, real-time sentiment pipelines. Each project starts with a question and ends with a tool anyone can use.",
+      "I engineer open-source systems that turn raw data into decisions — NGO-volunteer matching platforms, climate policy dashboards, causal inference engines, real-time sentiment pipelines. Each project starts with a question and ends with a tool anyone can use.",
     strengths: [
       "Full-stack data engineering — Python to React",
       "ML & causal inference for real-world problems",
@@ -45,27 +45,27 @@ export const site = {
         name: "NSE Sentiment Analyzer",
         tagline: "Live NSE price + multi-source sentiment",
         description:
-          "Live price plus 9 news sources, 500+ ticker aliases, Bayesian blending and VADER. Technical overlays, 10 stars, 109 tests, AGPL v3.",
+          "Enter any NSE ticker for a BULLISH / NEUTRAL / BEARISH signal: smart ticker search (504 aliases, handles rebrands and splits), 9-source news sentiment with event-aware scoring across 19 event types, a SmartScore 0-100 fusing recency-weighted EWMA, headline breadth and news volume, enhanced VADER plus a 123-term Indian financial lexicon, and RSI(14)/MACD technicals. 139 tests, AGPL v3.",
         tags: ["Streamlit", "Python", "NLP", "Finance"],
         url: "https://github.com/AshayK003/nse-sentiment-analyzer",
         gradient: "from-cyan-900/20 to-sky-900/10",
         featured: true,
       },
       {
-        name: "BreachAlpha",
-        tagline: "Data breach financial impact quantification",
+        name: "KarmaMap",
+        tagline: "Hyper-local NGO-volunteer matching platform",
         description:
-          "Event study (MacKinlay 1997) plus XGBoost risk scoring. Measures abnormal returns, CAR and recovery time. CLI, dashboard and FastAPI for CISO reporting. Deployed on Render, 144 tests.",
-        tags: ["FastAPI", "React", "Python", "Docker"],
-        url: "https://github.com/AshayK003/BreachAlpha",
-        gradient: "from-amber-900/20 to-orange-900/10",
+          "Production-grade PWA connecting NGOs with nearby volunteers. PostGIS proximity matching scored by skill and road distance (OSRM), role-based dashboards for volunteers/NGOs/corporates, a karma points + streaks incentive system with leaderboard, offline-ready installable PWA, and Supabase Row-Level Security. React + Vite frontend on Vercel, Express backend on Render.",
+        tags: ["React", "PostGIS", "Supabase", "PWA", "TypeScript"],
+        url: "https://github.com/AshayK003/KarmaMap",
+        gradient: "from-cyan-900/20 to-sky-900/10",
         featured: true,
       },
       {
         name: "NSE Portfolio Risk Scanner",
         tagline: "Institutional-grade risk analytics for NSE",
         description:
-          "VaR 95 and 99, Sharpe and Sortino, Monte Carlo 10K, HMM regimes, HRP optimization and stress testing. 355 tests, 90 percent coverage, zero paid APIs. Deployed on Streamlit Cloud.",
+          "Upload a holdings CSV (or try the sample) for a full risk report: Historical, Parametric and Cornish-Fisher VaR at 95/99, CVaR, Sharpe and Sortino, beta vs Nifty, 10,000-path Monte Carlo, HMM regime detection, Hierarchical Risk Parity optimization and scenario stress tests. 355 tests, 90 percent coverage, zero API keys. Deployed on Streamlit Cloud.",
         tags: ["Streamlit", "Python", "Risk Analytics"],
         url: "https://github.com/AshayK003/nse-portfolio-risk-scanner",
         gradient: "from-green-900/20 to-emerald-900/10",
@@ -129,16 +129,6 @@ export const site = {
         tags: ["Python", "ReportLab", "PDF"],
         url: "https://github.com/AshayK003/pdf-studio",
         gradient: "from-rose-900/20 to-pink-900/10",
-        featured: false,
-      },
-      {
-        name: "KarmaMap",
-        tagline: "NGO-volunteer matching platform",
-        description:
-          "Production PWA with PostGIS matching, role-based dashboards, karma incentives, offline support and Supabase RLS. Frontend on Vercel, backend on Render.",
-        tags: ["React", "PostGIS", "Supabase", "PWA", "TypeScript"],
-        url: "https://github.com/AshayK003/KarmaMap",
-        gradient: "from-cyan-900/20 to-sky-900/10",
         featured: false,
       },
       {
