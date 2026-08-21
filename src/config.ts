@@ -75,7 +75,7 @@ export const site = {
               name: "FII/DII Dashboard",
               tagline: "Institutional flow tracking from NSE India",
               description:
-                "Daily institutional flows with trends, FII vs DII, rolling averages and Nifty 50 overlay. Five forks, daily Telegram cron.",
+                "Auto-fetches daily FII/DII flows from NSE India into SQLite; 4 interactive charts (net flow trend, FII vs DII, rolling averages, Nifty overlay), date-range filtering and CSV export. Premium UI with Lucide icons, zero cron, no API keys. 49 tests, AGPL v3.",
               tags: ["Streamlit", "Python", "nsepython"],
               url: "https://github.com/AshayK003/fii-dii-dashboard",
               gradient: "from-blue-900/20 to-indigo-900/10",
@@ -85,7 +85,7 @@ export const site = {
               name: "DeltaGrid",
               tagline: "Paris Agreement NDC progress tracker",
               description:
-                "NDC gap analysis across 200 plus countries with green scoring and interactive choropleth maps. Deployed on Streamlit Cloud.",
+                "Computes the gap between Paris Agreement NDC pledges and actual energy-transition trajectories for 200+ countries. A 0-100 Green Score from 6 energy shares, real-time slider re-ranking, Plotly choropleth maps, CSV/XLSX upload with auto-preprocessing, and country classification (hidden champions to laggards). 123 tests, MIT.",
               tags: ["Streamlit", "Python", "Climate"],
               url: "https://github.com/AshayK003/DeltaGrid",
               gradient: "from-emerald-900/20 to-teal-900/10",
@@ -95,7 +95,7 @@ export const site = {
         name: "CausalLens",
         tagline: "Causal inference for time series",
         description:
-          "Did that policy work? ARIMA, Bayesian STS, Diff-in-Diff and Synthetic Control with counterfactual charts, p-values and 95 percent CIs.",
+        "Did that policy work? Five causal methods — ARIMA ITS, SARIMAX, Bayesian STS (Google CausalImpact), Difference-in-Differences, and Synthetic Control — with counterfactual charts, p-values, 95 percent CIs, placebo sensitivity checks, and PDF/HTML export. 207 tests, 11 pre-loaded datasets, MIT.",
         tags: ["Streamlit", "Python", "Causal Inference"],
         url: "https://github.com/AshayK003/CausalLens",
         gradient: "from-blue-900/20 to-indigo-900/10",
@@ -105,7 +105,7 @@ export const site = {
         name: "DataSmith",
         tagline: "Synthetic data generator with a real moat",
         description:
-          "Describe any dataset in plain English. Schema Knowledge Graph, Domain Imperfection Fingerprints and Community Schema Library. AGPL v3.",
+        "Realistic synthetic data from statistical metadata alone — no training, no GPU, no cloud calls. A Schema Knowledge Graph of real schemas (Kaggle, UCI, URLs), an Imperfection Fingerprint engine for nulls/outliers/noise, and batched iterative generation with KS-stat quality tuning. Seed-deterministic, SDV optional. AGPL v3.",
         tags: ["Python", "Streamlit", "SDV", "NumPy"],
         url: "https://github.com/AshayK003/DataSmith",
         gradient: "from-sky-900/20 to-blue-900/10",
@@ -115,7 +115,7 @@ export const site = {
         name: "DiffIQ",
         tagline: "BSE filing difference analysis",
         description:
-          "Downloads BSE announcements, extracts text with pypdf and diffs side-by-side. Pure Python plus SQLite, zero external services.",
+        "Corporate filing monitor for BSE-listed stocks: polls the BSE Announcements API daily, downloads attached PDFs, extracts text with pypdf, classifies by type and sections them, then diffs each section against the prior filing so you spot what changed. Pure Python plus SQLite, zero external services.",
         tags: ["Streamlit", "Python", "NLP"],
         url: "https://github.com/AshayK003/DiffIQ",
         gradient: "from-yellow-900/20 to-amber-900/10",
@@ -125,7 +125,7 @@ export const site = {
         name: "pdf-studio",
         tagline: "PDF generation, three lines at a time",
         description:
-          "ReportLab wrapper with three bundled fonts and two-pass rendering for page numbers. Table plus chart plus header in three lines.",
+        "Three lines of code for a PDF with a table, chart, and header. A thin wrapper over ReportLab with a clean Document model and two-pass rendering for page numbers — headings, paragraphs, tables, charts, and a running header without the boilerplate. Published on PyPI (pdf-studio-py), AGPL v3.",
         tags: ["Python", "ReportLab", "PDF"],
         url: "https://github.com/AshayK003/pdf-studio",
         gradient: "from-rose-900/20 to-pink-900/10",
@@ -135,7 +135,7 @@ export const site = {
         name: "PriceSentinel",
         tagline: "Competitor pricing monitor",
         description:
-          "Chrome extension (WXT plus Preact, 31KB) plus FastAPI backend with APScheduler and SQLite. Local-first, optional cloud sync.",
+        "Chrome extension plus a lightweight Python backend that pins competitor pricing pages and alerts you on change. CSS-selector targeting ignores nav/footer noise, a visual diff overlay highlights changes inline, and the backend polls on a schedule with email, Slack, and Telegram alerts. 10-second install, zero infra cost. MIT.",
         tags: ["WXT", "Preact", "FastAPI", "Chrome Extension"],
         url: "https://github.com/AshayK003/PriceSentinel",
         gradient: "from-blue-900/20 to-indigo-900/10",
@@ -143,9 +143,9 @@ export const site = {
       },
       {
         name: "Hackathon Problems",
-        tagline: "36 curated real-world problems",
+        tagline: "56 curated real-world problems",
         description:
-          "Global South AI, US Civic Tech and Rapid Prototypes — each with datasets, papers and MVP timelines. 10 stars, 2 forks.",
+        "The largest curated collection of real-world problem statements — 56 problems across 5 tracks (Global South Impact, US Civic Tech, India Impact, Frontier AI, Rapid Prototypes). Every problem is grounded in 200+ cited papers and 100+ linked datasets, ready to build for hackathons, capstones, and portfolios. MIT.",
         tags: ["Research", "Markdown", "Open Data"],
         url: "https://github.com/AshayK003/hackathon-problem-statements",
         gradient: "from-fuchsia-900/20 to-pink-900/10",
