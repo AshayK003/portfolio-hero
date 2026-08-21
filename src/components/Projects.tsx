@@ -15,7 +15,6 @@ const projectIcons: Record<string, React.ReactNode> = {
   PriceSentinel: <Search size={18} />,
   "Hackathon Problems": <Lightbulb size={18} />,
   "FII/DII Dashboard": <TrendingUp size={18} />,
-  StackTrade: <TrendingUp size={18} />,
 }
 
 export function Projects() {
@@ -43,26 +42,26 @@ export function Projects() {
           className="projects-feature"
           aria-label={`${hero.name} — ${hero.tagline}`}
         >
-          <div>
+          <div className="feature-content">
             <div className="section-label" style={{ marginBottom: 8 }}>
               Featured — {hero.tags.slice(0, 2).join(" · ")}
             </div>
-            <div style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>{hero.name}</div>
-            <div style={{ fontSize: 15, color: "rgba(10,10,10,0.6)", marginTop: 4 }}>{hero.tagline}</div>
-            <div style={{ fontSize: 14, lineHeight: 1.6, marginTop: 12, color: "rgba(10,10,10,0.72)" }}>{hero.description}</div>
-            <div className="feature-metrics">
+            <h3 style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em", marginTop: 2 }}>{hero.name}</h3>
+            <p style={{ fontSize: 15, color: "rgba(10,10,10,0.6)", marginTop: 4 }}>{hero.tagline}</p>
+            <p style={{ fontSize: 14, lineHeight: 1.6, marginTop: 12, color: "rgba(10,10,10,0.72)" }}>{hero.description}</p>
+            <div className="feature-metrics" style={{ marginTop: 16 }}>
               {hero.tags.map((t) => (
                 <span key={t} className="metric-pill">
                   {t}
                 </span>
               ))}
             </div>
-            <div style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 6, color: "var(--color-crimson)", fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 600 }}>
+            <div className="feature-cta" style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 6, color: "var(--color-crimson)", fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 600 }}>
               View on GitHub <ArrowRight size={14} />
             </div>
           </div>
-          <div style={{ background: "var(--color-paper)", borderRadius: 12, border: "1px solid var(--color-ink-faint)", display: "grid", placeItems: "center", minHeight: 220, color: "var(--color-ink-muted)" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>Preview — {hero.name}</span>
+          <div className="feature-preview" aria-hidden="true">
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--color-ink-muted)" }}>Preview — {hero.name}</span>
           </div>
         </a>
       )}
@@ -81,13 +80,13 @@ export function Projects() {
               <span className="project-icon" aria-hidden="true">
                 {projectIcons[project.name] || <Code2 size={18} />}
               </span>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(10,10,10,0.5)" }}>
+              <span className="project-category">
                 {project.tags[0]}
               </span>
             </div>
-            <div className="project-title">{project.name}</div>
-            <div className="project-tagline">{project.tagline}</div>
-            <div className="project-desc">{project.description}</div>
+            <h4 className="project-title">{project.name}</h4>
+            <p className="project-tagline">{project.tagline}</p>
+            <p className="project-desc">{project.description}</p>
             <div className="project-tags">
               {project.tags.map((tag) => (
                 <span key={tag} className="project-tag">
@@ -118,9 +117,9 @@ export function Projects() {
               rel="noopener noreferrer"
               className="project-card"
             >
-              <div className="project-title">{project.name}</div>
-              <div className="project-tagline">{project.tagline}</div>
-              <div className="project-desc">{project.description}</div>
+              <h4 className="project-title">{project.name}</h4>
+              <p className="project-tagline">{project.tagline}</p>
+              <p className="project-desc">{project.description}</p>
               <div className="project-tags">
                 {project.tags.map((tag) => (
                   <span key={tag} className="project-tag">
