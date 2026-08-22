@@ -7,6 +7,7 @@ import { Stack } from "./Stack"
 import { Projects } from "./Projects"
 import { Contact } from "./Contact"
 import { Footer } from "./Footer"
+import { MorseDivider } from "./MorseDivider"
 
 export function Landing() {
   return (
@@ -14,7 +15,7 @@ export function Landing() {
       <Nav />
       <main id="main-content" role="main">
         <Hero />
-        <div className="section-divider" aria-hidden="true" />
+        <MorseDivider />
         <About />
         <div className="section-divider" aria-hidden="true" />
         <Stack />

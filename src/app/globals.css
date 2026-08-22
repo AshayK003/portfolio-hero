@@ -104,6 +104,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .section{padding:72px 20px;max-width:1280px;margin:0 auto}
 @media(min-width:768px){.section{padding:96px 32px}}
 .section-divider{height:1px;background:var(--color-ink-faint);max-width:1280px;margin:0 auto}
+.morse-divider{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:center;cursor:default;transition:background 0.2s}
+.morse-track{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px}
+.morse-letter{display:inline-flex;align-items:center;gap:5px}
+.morse-dot,.morse-dash{display:inline-block;background:var(--color-ink-muted);border-radius:999px}
+.morse-dot{width:5px;height:5px}
+.morse-dash{width:16px;height:5px}
+.morse-reveal{font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;color:var(--color-crimson);margin-left:16px;opacity:0;transform:translateX(-4px);transition:opacity 0.25s,transform 0.25s;pointer-events:none}
+.morse-divider:hover .morse-reveal{opacity:1;transform:translateX(0)}
+.morse-divider:hover .morse-dot,.morse-divider:hover .morse-dash{background:var(--color-ink)}
 .section-header{margin-bottom:48px}
 .section-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-crimson);margin-bottom:12px}
 .section-title{font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-0.03em;font-weight:500}
