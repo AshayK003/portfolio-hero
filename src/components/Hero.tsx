@@ -34,8 +34,10 @@ export function Hero() {
           <div className="hero-korean" lang="ko">나는 센티넬 사이퍼다.</div>
           <div className="hero-meta">
             SYSTEMS OPENED<br />
-            FOR EVERYONE /<br />
-            A CURIOUS MIND WITH THE DISCIPLINE TO TURN IDEAS INTO REALITY.
+            A CURIOUS MIND<br />
+            WITH THE DISCIPLINE<br />
+            TO TURN IDEAS<br />
+            INTO REALITY.
           </div>
         </div>
 
