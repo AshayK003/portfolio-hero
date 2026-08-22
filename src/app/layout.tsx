@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     creator: "@sentinelcipher",
   },
   robots: { index: true, follow: true },
-  metadataBase: new URL("https://ashaykushwaha.dev"),
+  metadataBase: new URL("https://sentinelcipher3301.netlify.app"),
 }
 
 export const viewport: Viewport = {
