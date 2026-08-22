@@ -6,7 +6,6 @@ import { site } from "@/config"
 const projectIcons: Record<string, React.ReactNode> = {
   "NSE Sentiment Analyzer": <TrendingUp size={18} />,
   KarmaMap: <Map size={18} />,
-  BreachAlpha: <Shield size={18} />,
   CausalLens: <BarChart3 size={18} />,
   DeltaGrid: <Globe size={18} />,
   DataSmith: <Database size={18} />,
@@ -60,8 +59,15 @@ export function Projects() {
               View on GitHub <ArrowRight size={14} />
             </div>
           </div>
-          <div className="feature-preview" aria-hidden="true">
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--color-ink-muted)" }}>Preview — {hero.name}</span>
+          <div className="feature-preview feature-poster" aria-hidden="true">
+            <div className="feature-poster-icon">{projectIcons[hero.name] || <Code2 size={28} />}</div>
+            <div className="feature-poster-name">{hero.name}</div>
+            <div className="feature-poster-tag">{hero.tagline}</div>
+            <div className="feature-poster-tags">
+              {hero.tags.map((t) => (
+                <span key={t} className="project-tag">{t}</span>
+              ))}
+            </div>
           </div>
         </a>
       )}
