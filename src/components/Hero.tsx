@@ -35,7 +35,7 @@ export function Hero() {
           <div className="hero-meta">
             SYSTEMS OPENED<br />
             FOR EVERYONE /<br />
-            PROJECT PORTFOLIO
+            A CURIOUS MIND WITH THE DISCIPLINE TO TURN IDEAS INTO REALITY.
           </div>
         </div>
 
