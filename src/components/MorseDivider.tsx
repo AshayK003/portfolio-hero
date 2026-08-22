@@ -37,7 +37,7 @@ export function MorseDivider() {
           </span>
         ))}
       </div>
-      <span className="morse-reveal">{MESSAGE}</span>
+      <span className="morse-reveal">{MESSAGE}.</span>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+import { ConsoleCredit } from "../components/ConsoleCredit"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -59,7 +60,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} ${mono.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ConsoleCredit />
+        {children}
+      </body>
     </html>
   )
 }
