@@ -33,7 +33,6 @@ export function Hero() {
         <div className="hero-glass hero-glass--identity">
           <div className="hero-korean" lang="ko">나는 센티넬 사이퍼다.</div>
           <div className="hero-meta">
-            SYSTEMS OPENED<br />
             A CURIOUS MIND<br />
             WITH THE DISCIPLINE<br />
             TO TURN IDEAS<br />
