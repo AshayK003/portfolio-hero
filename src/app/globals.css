@@ -118,7 +118,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 @media(max-width:900px){.feature-content{padding-right:0;margin-bottom:16px}}
 .feature-preview{background:var(--color-paper);border-radius:12px;border:1px solid var(--color-ink-faint);display:grid;place-items:center;min-height:220px;color:var(--color-ink-muted);transition:background 0.2s}
 .projects-feature:hover .feature-preview{background:rgba(10,10,10,0.03)}
-.feature-poster{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:8px;background:linear-gradient(180deg,rgba(10,10,10,0.02),rgba(10,10,10,0.05));border:1px solid var(--color-ink-faint)}
+.feature-poster{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:10px;text-align:center;padding:8px;background:linear-gradient(180deg,rgba(10,10,10,0.02),rgba(10,10,10,0.05));border:1px solid var(--color-ink-faint)}
 .feature-poster-icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--color-ink);color:var(--color-paper)}
 .feature-poster-name{font-size:18px;font-weight:700;letter-spacing:-0.02em}
 .feature-poster-tag{font-size:13px;color:var(--color-ink-muted);line-height:1.4;max-width:32ch}
