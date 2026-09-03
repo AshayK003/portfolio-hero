@@ -50,9 +50,22 @@ export function SkillsVenn({
             <span className="venn-label vnn-right">{skills.right}</span>
             <span className="venn-label vnn-bottom">{skills.bottom}</span>
 
-            {/* Portrait in center */}
-            <div className="venn-portrait">
-              {/* Use Next Image if available, fallback to img */}
+            {/* Portrait in center — shifted right slightly */}
+            <div
+              className="venn-portrait"
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: 64,
+                height: 64,
+                transform: "translate(-40%, -50%)",
+                borderRadius: "50%",
+                overflow: "hidden",
+                border: "2px solid var(--color-paper)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              }}
+            >
               <img
                 src={profileImage}
                 alt={site.name}

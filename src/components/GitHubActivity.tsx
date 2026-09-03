@@ -96,7 +96,21 @@ export function GitHubActivity() {
     [activities]
   )
 
-  if (failed) return null
+  if (failed) {
+    return (
+      <section id="activity" aria-label="GitHub activity" className="section">
+        <div className="section-header">
+          <div className="section-label">Activity</div>
+          <h2 className="section-title">
+            Contribution <span style={{ color: "var(--color-crimson)" }}>graph.</span>
+          </h2>
+        </div>
+        <div style={{ padding: "20px 16px", textAlign: "center", color: "var(--color-ink-muted)", fontSize: 14 }}>
+          Run <code style={{ background: "var(--color-paper)", padding: "2px 6px", borderRadius: 4 }}>npm run update-contributions</code> to load contribution data.
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="activity" aria-label="GitHub activity" className="section">
