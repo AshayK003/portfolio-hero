@@ -9,7 +9,7 @@ type SkillsVennProps = {
   children?: React.ReactNode
 }
 
-const DEFAULT_IMAGE = "/hero-portrait.png"
+const DEFAULT_IMAGE = "/hero-portraitsq.png"
 
 export function SkillsVenn({
   profileImage = DEFAULT_IMAGE,
@@ -59,7 +59,7 @@ export function SkillsVenn({
                 left: "50%",
                 width: 64,
                 height: 64,
-                transform: "translate(-40%, -50%)",
+                transform: "translate(-50%, -50%)",
                 borderRadius: "50%",
                 overflow: "hidden",
                 border: "2px solid var(--color-paper)",
