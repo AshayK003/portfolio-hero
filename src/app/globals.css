@@ -197,3 +197,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 @media(min-width:768px){.footer{flex-direction:row;padding:24px 32px}}
 .footer-links{display:flex;gap:16px;font-family:var(--font-mono);font-size:12px}
 .back-to-top{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--color-ink-faint);background:#fff}
+
+/* GitHub Contribution Graph */
+@keyframes spin{to{transform:rotate(360deg)}}
+.animate-spin{animation:spin 1s linear infinite}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* Skills Venn Diagram */
+.venn-container{max-width:380px}
+.venn-circle{position:absolute;border-radius:50%;border:1px solid var(--color-ink-faint);width:55%;height:55%}
+.venn-top{top:0;left:50%;transform:translateX(-50%)}
+.venn-left{top:22%;left:2%}
+.venn-right{top:22%;right:2%}
+.venn-bottom{bottom:0;left:50%;transform:translateX(-50%)}
+.venn-label{position:absolute;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-ink-muted);white-space:nowrap}
+@media(min-width:640px){.venn-label{font-size:12px}}
+.vnn-top{top:14%;left:50%;transform:translate(-50%,-50%)}
+.vnn-left{top:50%;left:15%;transform:translate(-50%,-50%)}
+.vnn-right{top:50%;right:15%;transform:translate(50%,-50%)}
+.vnn-bottom{bottom:14%;left:50%;transform:translate(-50%,50%)}
+.venn-portrait{position:absolute;top:50%;left:50%;width:56px;height:56px;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;border:2px solid var(--color-paper);box-shadow:0 4px 12px rgba(0,0,0,0.12)}
+@media(min-width:640px){.venn-portrait{width:64px;height:64px;border-width:4px}}
+@media(min-width:768px){.venn-portrait{width:80px;height:80px}}
