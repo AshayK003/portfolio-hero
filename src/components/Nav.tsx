@@ -74,7 +74,7 @@ export function Nav() {
       <div className={`mobile-overlay${mobileOpen ? " open" : ""}`} role="dialog" aria-modal="true" aria-label="Navigation menu">
         <button
           onClick={() => setMobileOpen(false)}
-          style={{ position: "absolute", top: 20, right: 20, width: 40, height: 40, display: "grid", placeItems: "center", border: "1px solid var(--color-ink-faint)", borderRadius: 8 }}
+          style={{ position: "absolute", top: 20, right: 20, width: 44, height: 44, display: "grid", placeItems: "center", border: "1px solid var(--color-ink-faint)", borderRadius: 8 }}
           aria-label="Close menu"
         >
           <X size={18} />

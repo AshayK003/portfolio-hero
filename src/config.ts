@@ -36,9 +36,9 @@ export const site = {
   },
 
   stats: [
-      { value: "29", label: "Open Source Projects" },
-      { value: "68", label: "PR Contributions" },
-      { value: "50", label: "PRs Merged" },
+      { value: "29", label: "Open Source Projects", short: "Projects" },
+      { value: "68", label: "PR Contributions", short: "Contributions" },
+      { value: "50", label: "PRs Merged", short: "Merged" },
     ],
 
   projects: [

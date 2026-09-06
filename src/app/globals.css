@@ -169,6 +169,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .stat-card{flex:1;background:#fff;border:1px solid var(--color-ink-faint);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:center}
 .stat-value{font-size:22px;font-weight:700;letter-spacing:-0.02em}
 .stat-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:var(--color-ink-muted)}
+.stat-label-short{display:none}
+@media(max-width:500px){
+  .stat-label-full{display:none}
+  .stat-label-short{display:inline}
+  .stats-row{gap:8px}
+  .stat-card{padding:12px}
+}
 .strength-chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--color-ink-faint);border-radius:999px;padding:8px 12px;font-size:13px;margin:4px}
 .philosophy{margin-top:20px;background:#fff;border:1px solid var(--color-ink-faint);border-radius:16px;padding:22px}
 .philosophy-title{font-size:16px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px}
@@ -197,7 +204,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-crimson);outl
 .footer{border-top:1px solid var(--color-ink-faint);padding:24px 20px;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(min-width:768px){.footer{flex-direction:row;padding:24px 32px}}
 .footer-links{display:flex;gap:16px;font-family:var(--font-mono);font-size:12px}
-.back-to-top{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--color-ink-faint);background:#fff}
+/* Tap targets (WCAG 2.5.8): expanded hit areas, identical visuals via margin compensation */
+.footer-links a{display:inline-block;padding:13px 9px;margin:-13px -9px}
+.hero-link{padding:12px 0;margin:-12px 0}
+.nav-wordmark{padding:11px 12px;margin:-11px -12px}
+@media(min-width:768px){.nav-link{padding:14px 0}}
+.mobile-nav-link{padding:10px 20px}
+.back-to-top{margin:-4px}
+.mobile-menu-btn{width:44px;height:44px;margin:-4px}
+.contact-link{padding:12px}
+.btn-primary,.btn-ghost{padding:13px 20px}
+.back-to-top{width:44px;height:44px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--color-ink-faint);background:#fff}
 
 /* GitHub Contribution Graph */
 @keyframes spin{to{transform:rotate(360deg)}}

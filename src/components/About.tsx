@@ -19,7 +19,8 @@ export function About() {
               <div key={s.label} className="stat-card">
                 <div>
                   <div className="stat-value">{s.value}</div>
-                  <div className="stat-label">{s.label}</div>
+                  <div className="stat-label stat-label-full">{s.label}</div>
+                  <div className="stat-label stat-label-short">{s.short}</div>
                 </div>
               </div>
             ))}
