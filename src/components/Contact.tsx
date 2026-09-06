@@ -14,7 +14,7 @@ export function Contact() {
     <section id="contact" className="section" aria-label="Contact">
       <div className="section-header">
         <div className="section-label">Contact</div>
-        <h2 className="section-title">Let&apos;s build something together.</h2>
+        <h2 className="section-title">Got a problem worth solving?</h2>
         <p className="section-subtitle">Open to collaborations, research partnerships, and conversations at the intersection of data, security, and social impact.</p>
       </div>
 

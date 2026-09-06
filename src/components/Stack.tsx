@@ -6,7 +6,7 @@ export function Stack() {
     <section id="skills" className="section" aria-label="Skills">
       <div className="section-header">
         <div className="section-label">Stack</div>
-        <h2 className="section-title">Tools of the trade.</h2>
+        <h2 className="section-title">What I build with.</h2>
         <p className="section-subtitle">The instruments behind the systems — no percentages, just proof.</p>
       </div>
 

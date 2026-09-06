@@ -7,7 +7,7 @@ export function About() {
       <div className="section-header">
         <div className="section-label">About</div>
         <h2 className="section-title">
-          Data meets <span style={{ color: "var(--color-crimson)" }}>impact.</span>
+          I turn messy data into <span style={{ color: "var(--color-crimson)" }}>tools people run.</span>
         </h2>
       </div>
 

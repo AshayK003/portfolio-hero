@@ -27,7 +27,7 @@ export function Projects() {
     <section id="projects" className="section" aria-label="Selected works">
       <div className="section-header">
         <div className="section-label">Selected Work</div>
-        <h2 className="section-title">Systems that solve real problems.</h2>
+        <h2 className="section-title">Shipped, tested, open-source.</h2>
         <p className="section-subtitle">
           Open-source, MIT-licensed. Each project ships as a complete, production-ready tool — not a demo.
         </p>
