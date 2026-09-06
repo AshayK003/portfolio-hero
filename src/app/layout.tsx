@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ConsoleCredit } from "../components/ConsoleCredit"
+import { ServiceWorkerRegister } from "../components/ServiceWorkerRegister"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -44,6 +45,12 @@ export const metadata: Metadata = {
     creator: "@sentinelcipher",
   },
   robots: { index: true, follow: true },
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icons/icon-180.png",
+  },
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "Ashay" },
   metadataBase: new URL("https://sentinelcipher3301.netlify.app"),
 }
 
@@ -62,6 +69,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable} ${mono.variable} ${geistMono.variable}`}>
       <body>
         <ConsoleCredit />
+        <ServiceWorkerRegister />
         {children}
       </body>
     </html>
