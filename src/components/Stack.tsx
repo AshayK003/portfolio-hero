@@ -1,5 +1,6 @@
 "use client"
 import { site } from "@/config"
+import { RevealGroup } from "./RevealGroup"
 
 export function Stack() {
   return (
@@ -10,22 +11,19 @@ export function Stack() {
         <p className="section-subtitle">The instruments behind the systems — no percentages, just proof.</p>
       </div>
 
-      <div className="skills-grid">
+      <RevealGroup className="skills-grid">
         {site.stack.map((cat) => (
-          <div key={cat.category} className="skill-card">
+          <div key={cat.category} className="skill-card" data-reveal>
             <div className="skill-card-header">{cat.category}</div>
             {cat.items.map((item) => (
-              <div key={item.name} className="skill-item">
-                <div className="skill-item-name">{item.name}</div>
-                <div className="skill-item-desc">{item.description}</div>
-                <div className="skill-pills">
-                  <span className="skill-pill">{item.name}</span>
-                </div>
+              <div key={item.name} className="skill-line">
+                <div className="skill-line-name">{item.name}</div>
+                <div className="skill-line-desc">{item.description}</div>
               </div>
             ))}
           </div>
         ))}
-      </div>
+      </RevealGroup>
     </section>
   )
 }

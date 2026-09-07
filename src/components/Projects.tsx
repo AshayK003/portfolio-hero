@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { ArrowRight, TrendingUp, Map, Shield, BarChart3, Globe, Database, FileText, Search, Lightbulb, Code2 } from "lucide-react"
 import { site } from "@/config"
+import { RevealGroup } from "./RevealGroup"
 
 const projectIcons: Record<string, React.ReactNode> = {
   "NSE Sentiment Analyzer": <TrendingUp size={18} />,
@@ -21,7 +22,7 @@ export function Projects() {
   const rest = site.projects.filter((p) => !p.featured)
   const [showAll, setShowAll] = useState(false)
   const hero = featured[0]
-  const bento: (typeof site.projects)[number][] = [...featured.slice(1), ...rest.slice(0, 3)]
+  const rows: (typeof site.projects)[number][] = [...featured.slice(1), ...rest.slice(0, 3)]
 
   return (
     <section id="projects" className="section" aria-label="Selected works">
@@ -65,47 +66,46 @@ export function Projects() {
             <div className="feature-poster-tag">{hero.tagline}</div>
             <div className="feature-poster-tags">
               {hero.tags.map((t) => (
-                <span key={t} className="project-tag">{t}</span>
+                <span key={t} className="metric-pill">{t}</span>
               ))}
             </div>
           </div>
         </a>
       )}
 
-      <div className="bento">
-        {bento.map((project) => (
+      <RevealGroup className="repo-list">
+        {rows.map((project) => (
           <a
             key={project.name}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-card"
+            className="repo-row"
+            data-reveal
             aria-label={`View ${project.name} on GitHub`}
           >
-            <div className="project-top">
-              <span className="project-icon" aria-hidden="true">
-                {projectIcons[project.name] || <Code2 size={18} />}
+            <span className="repo-icon" aria-hidden="true">
+              {projectIcons[project.name] || <Code2 size={18} />}
+            </span>
+            <span className="repo-main">
+              <span className="repo-name-row">
+                <span className="repo-name">{project.name}</span>
+                <span className="repo-tagline">{project.tagline}</span>
               </span>
-              <span className="project-category">
-                {project.tags[0]}
-              </span>
-            </div>
-            <h4 className="project-title">{project.name}</h4>
-            <p className="project-tagline">{project.tagline}</p>
-            <p className="project-desc">{project.description}</p>
-            <div className="project-tags">
-              {project.tags.map((tag) => (
-                <span key={tag} className="project-tag">
-                  {tag}
+              <span className="repo-desc">{project.description}</span>
+              <span className="repo-meta">
+                <span className="repo-lang">
+                  <span className="lang-dot" style={{ background: project.langColor }} />
+                  {project.lang}
                 </span>
-              ))}
-            </div>
-            <div className="project-footer">
-              View on GitHub <ArrowRight size={13} />
-            </div>
+                {project.tests && <span>{project.tests}</span>}
+                {project.license && <span>{project.license}</span>}
+              </span>
+            </span>
+            <ArrowRight size={15} className="repo-arrow" aria-hidden="true" />
           </a>
         ))}
-      </div>
+      </RevealGroup>
 
       {!showAll ? (
         <div style={{ textAlign: "center", marginTop: 24 }}>
@@ -114,31 +114,39 @@ export function Projects() {
           </button>
         </div>
       ) : (
-        <div className="bento" style={{ marginTop: 16 }}>
+        <RevealGroup className="repo-list" style={{ marginTop: 16 }}>
           {rest.slice(3).map((project) => (
             <a
               key={project.name}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="project-card"
+              className="repo-row"
+              data-reveal
+              aria-label={`View ${project.name} on GitHub`}
             >
-              <h4 className="project-title">{project.name}</h4>
-              <p className="project-tagline">{project.tagline}</p>
-              <p className="project-desc">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="project-tag">
-                    {tag}
+              <span className="repo-icon" aria-hidden="true">
+                {projectIcons[project.name] || <Code2 size={18} />}
+              </span>
+              <span className="repo-main">
+                <span className="repo-name-row">
+                  <span className="repo-name">{project.name}</span>
+                  <span className="repo-tagline">{project.tagline}</span>
+                </span>
+                <span className="repo-desc">{project.description}</span>
+                <span className="repo-meta">
+                  <span className="repo-lang">
+                    <span className="lang-dot" style={{ background: project.langColor }} />
+                    {project.lang}
                   </span>
-                ))}
-              </div>
-              <div className="project-footer">
-                View on GitHub <ArrowRight size={13} />
-              </div>
+                  {project.tests && <span>{project.tests}</span>}
+                  {project.license && <span>{project.license}</span>}
+                </span>
+              </span>
+              <ArrowRight size={15} className="repo-arrow" aria-hidden="true" />
             </a>
           ))}
-        </div>
+        </RevealGroup>
       )}
     </section>
   )

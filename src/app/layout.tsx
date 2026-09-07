@@ -68,6 +68,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${mono.variable} ${geistMono.variable}`}>
       <body>
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <ConsoleCredit />
         <ServiceWorkerRegister />
         {children}

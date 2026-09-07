@@ -19,7 +19,9 @@ export function Hero() {
         </div>
 
         <div className="hero-glass hero-glass--pillars">
-          SYSTEMS<br />RESEARCH<br />OPEN<br />IMPACT
+          <span className="motto-line">Intend.</span>
+          <span className="motto-line">Design.</span>
+          <span className="motto-line">Deliver.</span>
         </div>
 
         <div className="hero-glass hero-glass--headline">
