@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import Image from "next/image"
 import { ArrowRight, TrendingUp, Map, Shield, BarChart3, Globe, Database, FileText, Search, Lightbulb, Code2 } from "lucide-react"
 import { site } from "@/config"
 import { RevealGroup } from "./RevealGroup"
@@ -60,16 +61,28 @@ export function Projects() {
               View on GitHub <ArrowRight size={14} />
             </div>
           </div>
-          <div className="feature-preview feature-poster" aria-hidden="true">
-            <div className="feature-poster-icon">{projectIcons[hero.name] || <Code2 size={28} />}</div>
-            <div className="feature-poster-name">{hero.name}</div>
-            <div className="feature-poster-tag">{hero.tagline}</div>
-            <div className="feature-poster-tags">
-              {hero.tags.map((t) => (
-                <span key={t} className="metric-pill">{t}</span>
-              ))}
+          {"previewImage" in hero && hero.previewImage ? (
+            <div className="feature-preview feature-shot" aria-hidden="true">
+              <Image
+                src={hero.previewImage}
+                alt={`${hero.name} preview`}
+                width={1465}
+                height={931}
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
             </div>
-          </div>
+          ) : (
+            <div className="feature-preview feature-poster" aria-hidden="true">
+              <div className="feature-poster-icon">{projectIcons[hero.name] || <Code2 size={28} />}</div>
+              <div className="feature-poster-name">{hero.name}</div>
+              <div className="feature-poster-tag">{hero.tagline}</div>
+              <div className="feature-poster-tags">
+                {hero.tags.map((t) => (
+                  <span key={t} className="metric-pill">{t}</span>
+                ))}
+              </div>
+            </div>
+          )}
         </a>
       )}
 

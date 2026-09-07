@@ -53,6 +53,7 @@ export const site = {
         langColor: "#3572A5",
         tests: "139 tests",
         license: "AGPL-3.0",
+        previewImage: "/nse-sentiment-preview.png",
         featured: true,
       },
       {
